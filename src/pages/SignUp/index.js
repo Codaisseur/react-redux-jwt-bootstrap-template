@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { signUp } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -33,7 +33,7 @@ export default function SignUp() {
 
   return (
     <Container>
-      <h1>SIGNUP</h1>
+      <h1>Signup</h1>
       <Form onSubmit={submitForm}>
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
@@ -69,9 +69,14 @@ export default function SignUp() {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <Form.Group>
+          <Button className="col-md-2" variant="primary" type="submit">
+            Sign up
+          </Button>
+          <Link className="col-md-2" to="/login">
+            Click here to log in
+          </Link>
+        </Form.Group>
       </Form>
     </Container>
   );

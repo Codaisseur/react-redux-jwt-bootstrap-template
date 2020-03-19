@@ -2,12 +2,17 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import { useDispatch } from "react-redux";
-import { logOut } from "../../store/user/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "../../store/user/selectors";
+import NavbarItem from "./NavbarItem";
+import LoggedIn from "./LoggedIn";
+import LoggedOut from "./LoggedOut";
 
 export default function Navigation() {
-  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+
+  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
@@ -16,27 +21,9 @@ export default function Navigation() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
-          <Nav.Item>
-            <Nav.Link exact as={NavLink} to="/">
-              Home
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={NavLink} to="/other">
-              Other
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={NavLink} to="/signup">
-              Sign up
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={NavLink} to="/login">
-              Login
-            </Nav.Link>
-          </Nav.Item>
-          <Button onClick={() => dispatch(logOut())}>Logout</Button>
+          <NavbarItem path="/" linkText="Home" />
+          <NavbarItem path="/other" linkText="Other" />
+          {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
