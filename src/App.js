@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import SignUp from "./pages/SignUp";
 
 const Home = () => <h1>Home</h1>;
 const Other = () => <h1>Other</h1>;
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/other" component={Other} />
+        <Route path="/signup" component={SignUp} />
       </Switch>
     </div>
   );
