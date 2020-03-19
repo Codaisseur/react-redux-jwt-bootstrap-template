@@ -1,4 +1,4 @@
-const initialState = { loading: true, error: null };
+const initialState = { loading: true, error: null, message: null };
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -13,6 +13,12 @@ export default (state = initialState, action) => {
 
     case "UNSET_ERROR":
       return { ...state, error: null };
+
+    case "SET_MESSAGE":
+      return { ...state, message: action.payload };
+
+    case "UNSET_MESSAGE":
+      return { ...state, message: null };
 
     default:
       return state;

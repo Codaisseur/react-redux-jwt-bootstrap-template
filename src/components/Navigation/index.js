@@ -3,8 +3,11 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../store/user/actions";
 
 export default function Navigation() {
+  const dispatch = useDispatch();
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
@@ -33,7 +36,7 @@ export default function Navigation() {
               Login
             </Nav.Link>
           </Nav.Item>
-          <Button>Logout</Button>
+          <Button onClick={() => dispatch(logOut())}>Logout</Button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
