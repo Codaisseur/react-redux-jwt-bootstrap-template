@@ -38,7 +38,7 @@ export default function SignUp() {
         md={{ span: 6, offset: 3 }}
         className="mt-5"
       >
-        <h1 className="m-5">Login</h1>
+        <h1 className="mt-5 mb-5">Login</h1>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -60,14 +60,14 @@ export default function SignUp() {
             required
           />
         </Form.Group>
-        <Form.Group className="m-5">
-          <Button className="col-md-5" variant="primary" type="submit">
+        <Form.Group className="mt-5">
+          <Button variant="primary" type="submit">
             Log in
           </Button>
-          <Link className="col-md-5" to="/signup">
-            Click here to sign up
-          </Link>
         </Form.Group>
+        <Link to="/signup" style={{ textAlign: "center" }}>
+          Click here to sign up
+        </Link>
       </Form>
     </Container>
   );
