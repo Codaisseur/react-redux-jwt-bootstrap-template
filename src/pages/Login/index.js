@@ -6,6 +6,7 @@ import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
+import { Col } from "react-bootstrap";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -31,8 +32,13 @@ export default function SignUp() {
 
   return (
     <Container>
-      <h1>Login</h1>
-      <Form onSubmit={submitForm} className="justify-content-md-center">
+      <Form
+        onSubmit={submitForm}
+        as={Col}
+        md={{ span: 6, offset: 3 }}
+        className="mt-5"
+      >
+        <h1 className="m-5">Login</h1>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -54,11 +60,11 @@ export default function SignUp() {
             required
           />
         </Form.Group>
-        <Form.Group>
-          <Button className="col-md-2" variant="primary" type="submit">
+        <Form.Group className="m-5">
+          <Button className="col-md-5" variant="primary" type="submit">
             Log in
           </Button>
-          <Link className="col-md-2" to="/signup">
+          <Link className="col-md-5" to="/signup">
             Click here to sign up
           </Link>
         </Form.Group>
