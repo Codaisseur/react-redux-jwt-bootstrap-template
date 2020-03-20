@@ -1,24 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+
+import { Switch, Route } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import Loading from "./components/Loading";
+import MessageBox from "./components/MessageBox";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+
+import { useDispatch, useSelector } from "react-redux";
+import { selectAppLoading } from "./store/appState/selectors";
+import { getUserWithStoredToken } from "./store/user/actions";
+import { Jumbotron } from "react-bootstrap";
+
+const Home = () => (
+  <Jumbotron>
+    <h1>Home</h1>
+  </Jumbotron>
+);
+const Other = () => (
+  <Jumbotron>
+    <h1>Other</h1>
+  </Jumbotron>
+);
 
 function App() {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectAppLoading);
+
+  useEffect(() => {
+    dispatch(getUserWithStoredToken());
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+      <MessageBox />
+      <Switch>
+        {isLoading ? <Loading /> : null}
+        <Route exact path="/" component={Home} />
+        <Route path="/other" component={Other} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/login" component={Login} />
+      </Switch>
     </div>
   );
 }
