@@ -22,6 +22,7 @@ export default function SignUp() {
   }, [token, history]);
 
   function submitForm(event) {
+    console.log("hi");
     event.preventDefault();
 
     dispatch(login(email, password));
@@ -32,12 +33,7 @@ export default function SignUp() {
 
   return (
     <Container>
-      <Form
-        onSubmit={submitForm}
-        as={Col}
-        md={{ span: 6, offset: 3 }}
-        className="mt-5"
-      >
+      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Login</h1>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -61,7 +57,7 @@ export default function SignUp() {
           />
         </Form.Group>
         <Form.Group className="mt-5">
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={submitForm}>
             Log in
           </Button>
         </Form.Group>

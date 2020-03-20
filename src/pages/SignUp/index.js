@@ -34,12 +34,7 @@ export default function SignUp() {
 
   return (
     <Container>
-      <Form
-        onSubmit={submitForm}
-        as={Col}
-        md={{ span: 6, offset: 3 }}
-        className="mt-5"
-      >
+      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Signup</h1>
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
@@ -76,7 +71,7 @@ export default function SignUp() {
           />
         </Form.Group>
         <Form.Group className="mt-5">
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={submitForm}>
             Sign up
           </Button>
         </Form.Group>
