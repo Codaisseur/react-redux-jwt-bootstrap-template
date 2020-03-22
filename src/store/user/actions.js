@@ -97,8 +97,11 @@ export const getUserWithStoredToken = () => {
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());
     } catch (error) {
-      console.log(error.response.message);
-
+      if (error.response) {
+        console.log(error.response.message);
+      } else {
+        console.log(error);
+      }
       // if we get a 4xx or 5xx response,
       // get rid of the token by logging out
       dispatch(logOut());
