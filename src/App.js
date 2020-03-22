@@ -36,8 +36,8 @@ function App() {
     <div className="App">
       <Navigation />
       <MessageBox />
+      {isLoading ? <Loading /> : null}
       <Switch>
-        {isLoading ? <Loading /> : null}
         <Route exact path="/" component={Home} />
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
