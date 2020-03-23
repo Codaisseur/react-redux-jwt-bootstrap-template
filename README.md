@@ -1,6 +1,6 @@
-# Server template
+# Frontend template
 
-This is a simple server template to for my students to start projects quickly.
+This is a simple react/redux/jwt template to start a project quickly
 
 ## Table of contents:
 
