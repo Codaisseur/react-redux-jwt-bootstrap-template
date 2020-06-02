@@ -5,8 +5,9 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage
+  setMessage,
 } from "../appState/actions";
+import { saveUserHomepage } from "../homepages/actions";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
@@ -15,13 +16,13 @@ export const LOG_OUT = "LOG_OUT";
 const loginSuccess = userWithToken => {
   return {
     type: LOGIN_SUCCESS,
-    payload: userWithToken
+    payload: userWithToken,
   };
 };
 
 const tokenStillValid = userWithoutToken => ({
   type: TOKEN_STILL_VALID,
-  payload: userWithoutToken
+  payload: userWithoutToken,
 });
 
 export const logOut = () => ({ type: LOG_OUT });
@@ -33,10 +34,13 @@ export const signUp = (name, email, password) => {
       const response = await axios.post(`${apiUrl}/signup`, {
         name,
         email,
-        password
+        password,
       });
+      const { homepage, ...restOfUser } = response.data;
 
-      dispatch(loginSuccess(response.data));
+      dispatch(loginSuccess(restOfUser));
+      dispatch(saveUserHomepage(homepage));
+
       dispatch(showMessageWithTimeout("success", true, "account created"));
       dispatch(appDoneLoading());
     } catch (error) {
@@ -58,10 +62,15 @@ export const login = (email, password) => {
     try {
       const response = await axios.post(`${apiUrl}/login`, {
         email,
-        password
+        password,
       });
 
-      dispatch(loginSuccess(response.data));
+      const { homepage, ...restOfUser } = response.data;
+
+      console.log("login data", response.data);
+      dispatch(saveUserHomepage(homepage));
+      dispatch(loginSuccess(restOfUser));
+
       dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
       dispatch(appDoneLoading());
     } catch (error) {
@@ -90,7 +99,7 @@ export const getUserWithStoredToken = () => {
       // if we do have a token,
       // check wether it is still valid or if it is expired
       const response = await axios.get(`${apiUrl}/me`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
 
       // token is still valid
