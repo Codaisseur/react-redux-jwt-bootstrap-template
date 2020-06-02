@@ -5,6 +5,11 @@ export const saveHomepages = homepages => ({
   payload: homepages, // => [{}, {}, {}]
 });
 
+export const saveUserHomepage = homepage => ({
+  type: "SAVE_USER_HOMEPAGE",
+  payload: homepage,
+});
+
 export const fetchHomepages = () => async (dispatch, getState) => {
   try {
     const response = await axios.get("http://localhost:4000/homepages/");
