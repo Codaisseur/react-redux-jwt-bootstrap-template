@@ -8,7 +8,7 @@ const HomepageCard = props => {
     <div style={{ backgroundColor: bgColor, color: textColor }}>
       <h2>{props.title}</h2>
       <h4>{props.description}</h4>
-      <Link to={`/homepages/${props.id}`}>VisitPage</Link>
+      {!props.myPage && <Link to={`/homepages/${props.id}`}>VisitPage</Link>}
     </div>
   );
 };
