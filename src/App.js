@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
@@ -33,16 +33,16 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/other" component={Other} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/login" component={Login} />
-      </Switch>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/other' element={<Other />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
     </div>
   );
 }
