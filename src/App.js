@@ -18,17 +18,6 @@ import TonejsPage from "./pages/TonejsPage/TonejsPage";
 
 import { Squares } from "./components/Squares/Squarescomponent";
 
-const Home = () => (
-  <HeroBanner>
-    <h1>Geluiden muziek website</h1>
-  </HeroBanner>
-);
-const Tone = () => (
-  <HeroBanner>
-    <h1>Tone</h1>
-  </HeroBanner>
-);
-
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);

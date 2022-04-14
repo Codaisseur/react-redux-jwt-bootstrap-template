@@ -1,0 +1,15 @@
+.toneJs-page > div {
+  border: 1px solid black;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: space-around;
+
+  align-content: stretch;
+}
+
+.toneJs-page > button {
+  border: 2px double rgb(182, 65, 65);
+}

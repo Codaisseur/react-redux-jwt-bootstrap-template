@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Tone from "tone";
+import HeroBanner from "../../components/HeroBanner";
+
+import "./style.css";
 
 import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
 
@@ -45,7 +48,10 @@ export default function TonejsPage() {
   );
 
   return (
-    <div>
+    <div className="toneJs-page">
+      <HeroBanner>
+        <h1>Tone.js Page</h1>
+      </HeroBanner>
       <button
         onClick={() => {
           kickDrum.triggerAttackRelease("C1", "8n");
