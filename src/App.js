@@ -13,14 +13,19 @@ import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import HeroBanner from "./components/HeroBanner";
 
+import LeadsheetPage from "./pages/Leadsheet/LeadsheetPage";
+import TonejsPage from "./pages/TonejsPage/TonejsPage";
+
+import { Squares } from "./components/Squares/Squarescomponent";
+
 const Home = () => (
   <HeroBanner>
-    <h1>Home</h1>
+    <h1>Geluiden muziek website</h1>
   </HeroBanner>
 );
-const Other = () => (
+const Tone = () => (
   <HeroBanner>
-    <h1>Other</h1>
+    <h1>Tone</h1>
   </HeroBanner>
 );
 
@@ -37,9 +42,12 @@ function App() {
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}
+
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/other" element={<Other />} />
+        <Route exact path="/" element={<LeadsheetPage />} />
+        <Route path="/squares" element={<Squares />} />
+        <Route path="/tone" element={<TonejsPage />} />
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
