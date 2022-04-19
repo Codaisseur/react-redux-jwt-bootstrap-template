@@ -14,8 +14,9 @@ import { getUserWithStoredToken } from "./store/user/actions";
 
 import LeadsheetPage from "./pages/Leadsheet/LeadsheetPage";
 import TonejsPage from "./pages/TonejsPage/TonejsPage";
-import Prototype from "./pages/Prototypingpage/Prototype";
-import CanvasP5 from "./pages/CanvasP5/Canvasp5";
+
+import CanvasP5 from "./pages/CanvasP5/Canvasp5copy";
+// import CanvasP5copy from "./pages/CanvasP5/Canvasp5copy";
 import { Squares } from "./components/Squares/Squarescomponent";
 
 function App() {
@@ -36,8 +37,8 @@ function App() {
         <Route exact path="/" element={<LeadsheetPage />} />
         <Route path="/squares" element={<Squares />} />
         <Route path="/tone" element={<TonejsPage />} />
-        <Route path="/prototype" element={<Prototype />} />
         <Route path="/canvas" element={<CanvasP5 />} />
+        {/* <Route path="/canvascopy" element={<CanvasP5copy />} /> */}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>

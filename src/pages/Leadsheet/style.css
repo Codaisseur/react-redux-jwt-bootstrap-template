@@ -1,0 +1,27 @@
+.sequencerblock-style {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.seq-selector-style {
+  border: 1px solid black;
+}
+
+.sound-selector-style {
+  border: 1px solid black;
+}
+.sequencer-style {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.sequencer-style table {
+  border: 2px solid rgb(11, 152, 49);
+}
+
+.sequencer-style td {
+  border: 1px solid rgb(23, 67, 18);
+}

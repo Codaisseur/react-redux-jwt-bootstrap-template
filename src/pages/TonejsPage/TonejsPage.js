@@ -1,58 +1,63 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import * as Tone from "tone";
 import HeroBanner from "../../components/HeroBanner";
-
 import "./style.css";
 
-import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
+//  import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
 
-// import { TriggerbuttonsComponent } from "../../components/TriggerButton/Triggerbuttoncomponent";
+let ready = false;
 
-export default function TonejsPage() {
-  const kickDrum = new Tone.MembraneSynth({
-    volume: 4,
-  }).toDestination();
+export default function TonejsPage(props) {
+  // const kickDrum = new Tone.MembraneSynth({
+  //   volume: 4,
+  // }).toDestination();
 
-  let wave;
-  wave = new Tone.Waveform(128);
-  kickDrum.connect(wave);
-  let buffer = wave.getValue();
+  // const player = new Tone.Player(
+  //   "https://tonejs.github.io/audio/berklee/gong_1.mp3"
+  // ).toDestination();
 
-  const tonalal = new Tone.Analyser("waveform", 128);
-  console.log("tonalal", tonalal);
-  console.log("buffer", buffer);
+  // const sampler = new Tone.Sampler({
+  //   urls: {
+  //     A1: "A1.mp3",
+  //     A2: "A2.mp3",
+  //   },
+  //   baseUrl: "https://tonejs.github.io/audio/casio/",
+  // }).toDestination();
 
-  window.addEventListener(
-    "keydown",
-    function (event) {
-      if (event.defaultPrevented) {
-        return; // Do nothing if the event was already processed
-      }
-      switch (event.key) {
-        case "a":
-          kickDrum.triggerAttackRelease("C1", "8n");
-
-          console.log(buffer[67]);
-          break;
-        case "s":
-          kickDrum.triggerAttackRelease("C2", "32n");
-          console.log(buffer[34]);
-          break;
-        default:
-          return; // Quit when this doesn't handle the key event.
-      }
-      event.preventDefault();
-    },
-    true
-  );
+  // window.addEventListener(
+  //   "keydown",
+  //   function (event) {
+  //     if (event.defaultPrevented) {
+  //       return; // Do nothing if the event was already processed
+  //     }
+  //     // // switch (event.key) {
+  //     // //   case "q":
+  //     // //     sampler.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5);
+  //     // //     break;
+  //     // //   case "w":
+  //     // //     player.start();
+  //     // //     break;
+  //     // //   case "a":
+  //     // //     kickDrum.triggerAttackRelease("C1", "8n");
+  //     // //     break;
+  //     // //   case "s":
+  //     // //     kickDrum.triggerAttackRelease("C2", "32n");
+  //     // //     break;
+  //     //   default:
+  //     //     return; // Quit when this doesn't handle the key event.
+  //     }
+  //     event.preventDefault();
+  //   },
+  //   true
+  // );
 
   return (
     <div className="toneJs-page">
       <HeroBanner>
         <h1>Tone.js Page</h1>
       </HeroBanner>
-      <button
+      {/* <button
         onClick={() => {
           kickDrum.triggerAttackRelease("C1", "8n");
         }}
@@ -65,8 +70,9 @@ export default function TonejsPage() {
         }}
       >
         KLENK
-      </button>
-      <Pianonotescomponent a="" b="" />
+      </button> */}
+      <h2>press B to start</h2>
+      {/* <Pianonotescomponent a="" b="" /> */}
     </div>
   );
 }
