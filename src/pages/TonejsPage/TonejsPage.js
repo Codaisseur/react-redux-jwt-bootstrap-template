@@ -4,14 +4,12 @@ import * as Tone from "tone";
 import HeroBanner from "../../components/HeroBanner";
 import "./style.css";
 
-//  import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
-
 let ready = false;
 
 export default function TonejsPage(props) {
   // const kickDrum = new Tone.MembraneSynth({
   //   volume: 4,
-  // }).toDestination();
+  // });
 
   // const player = new Tone.Player(
   //   "https://tonejs.github.io/audio/berklee/gong_1.mp3"
@@ -71,8 +69,6 @@ export default function TonejsPage(props) {
       >
         KLENK
       </button> */}
-      <h2>press B to start</h2>
-      {/* <Pianonotescomponent a="" b="" /> */}
     </div>
   );
 }

@@ -19,9 +19,13 @@
 }
 
 .sequencer-style table {
-  border: 2px solid rgb(11, 152, 49);
+  border: 1px solid rgb(11, 152, 49);
 }
 
 .sequencer-style td {
-  border: 1px solid rgb(23, 67, 18);
+  border: 1px solid rgb(40, 18, 67);
+}
+
+.sequencer-style th {
+  border: 1px solid rgb(211, 212, 124);
 }
