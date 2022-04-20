@@ -1,9 +1,9 @@
 const initialState = {
   seqPattern: [
-    { id: 1, Atrig: false, Btrig: false },
-    { id: 2, Atrig: false, Btrig: false },
-    { id: 3, Atrig: false, Btrig: false },
-    { id: 4, Atrig: false, Btrig: false },
+    { id: 1, Atrig: true, Btrig: false },
+    { id: 2, Atrig: true, Btrig: true },
+    { id: 3, Atrig: true, Btrig: false },
+    { id: 4, Atrig: false, Btrig: true },
   ],
   seqSoundSelected: "Wood",
   seqSongPattern: "",
@@ -12,7 +12,6 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "triggeraanuitAtrig": {
-      console.log("touched Atrig", action.payload);
       return {
         ...state,
         seqPattern: state.seqPattern.map((tel) => {
@@ -25,7 +24,6 @@ export default function reducer(state = initialState, action) {
       };
     }
     case "triggeraanuitBtrig": {
-      console.log("touched Btrig", action.payload);
       return {
         ...state,
         seqPattern: state.seqPattern.map((tel) => {
@@ -38,6 +36,12 @@ export default function reducer(state = initialState, action) {
       };
     }
 
+    case "SeqSoundSelector": {
+      return {
+        ...state,
+        seqSoundSelected: action.payload,
+      };
+    }
     default:
       return state;
   }

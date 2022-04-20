@@ -7,3 +7,8 @@ export const TriggerAanUitBtrig = (Payload) => ({
   type: "triggeraanuitBtrig",
   payload: Payload,
 });
+
+export const SeqSoundSelector = (Payload) => ({
+  type: "SeqSoundSelector",
+  payload: Payload,
+});

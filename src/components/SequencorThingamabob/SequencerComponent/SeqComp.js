@@ -22,7 +22,7 @@ export default function SeqComp() {
               dispatch(TriggerAanUitAtrig(i.id));
             }}
           >
-            tel Atrig {i.id}
+            {i.Atrig === true ? <p>true</p> : <p>false</p>}
           </button>
 
           <button
@@ -30,11 +30,8 @@ export default function SeqComp() {
               dispatch(TriggerAanUitBtrig(i.id, i.Btrig));
             }}
           >
-            tel Btrig {i.id}
+            {i.Btrig === true ? <p>true</p> : <p>false</p>}
           </button>
-          <th>Atrigger is{i.Atrig === true ? <p>true</p> : <p>false</p>}</th>
-
-          <th>Btrigger is{i.Btrig === true ? <p>true</p> : <p>false</p>}</th>
         </tr>
       ))}
     </div>

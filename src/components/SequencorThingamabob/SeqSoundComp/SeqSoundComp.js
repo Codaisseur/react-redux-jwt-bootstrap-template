@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeroBanner from "../../HeroBanner";
 
+import { SeqSoundSelector } from "../../../store/seqState/actions";
+import { selectSeqSound } from "../../../store/seqState/selectors";
+
 export default function SeqSoundComp() {
-  const [soundStyle, setSoundStyle] = useState("");
+  const [soundStyle, setSoundStyle] = useState("loud");
+  const dispatch = useDispatch();
+  const soundSelected = useSelector(selectSeqSound);
+
+  dispatch(SeqSoundSelector(soundStyle));
 
   return (
     <div className="sound-selector-style">
@@ -15,6 +22,7 @@ export default function SeqSoundComp() {
         <option value="Metal">Metal</option>
         <option value="Wood">Wood</option>
       </select>
+      <h4>Stijl : {soundSelected} </h4>
     </div>
   );
 }
