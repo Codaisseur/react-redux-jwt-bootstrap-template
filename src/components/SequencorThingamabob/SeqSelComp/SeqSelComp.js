@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import HeroBanner from "../../components/HeroBanner";
+import HeroBanner from "../../HeroBanner";
 // import "./style.css";
 
 export default function SeqSelComp() {

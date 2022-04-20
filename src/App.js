@@ -12,7 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 
-import LeadsheetPage from "./pages/Leadsheet/LeadsheetPage";
+import HomePage from "./pages/HomePage/HomePage";
+
 import TonejsPage from "./pages/TonejsPage/TonejsPage";
 
 import CanvasP5copy from "./pages/CanvasP5/Canvasp5copy";
@@ -35,7 +36,8 @@ function App() {
       {isLoading ? <Loading /> : null}
 
       <Routes>
-        <Route exact path="/" element={<LeadsheetPage />} />
+        <Route exact path="/" element={<HomePage />} />
+
         <Route path="/squares" element={<Squares />} />
         <Route path="/tone" element={<TonejsPage />} />
         {/* <Route path="/canvas" element={<CanvasP5 />} /> */}

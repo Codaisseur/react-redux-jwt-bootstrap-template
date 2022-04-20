@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import HeroBanner from "../../components/HeroBanner";
-// import "./style.css";
+import HeroBanner from "../../HeroBanner";
 
 export default function SeqSoundComp() {
   const [soundStyle, setSoundStyle] = useState("");
