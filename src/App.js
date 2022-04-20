@@ -17,7 +17,7 @@ import TonejsPage from "./pages/TonejsPage/TonejsPage";
 
 import CanvasP5copy from "./pages/CanvasP5/Canvasp5copy";
 import CanvasP5try from "./pages/CanvasP5/Canvasp5try";
-// import CanvasP5copy from "./pages/CanvasP5/Canvasp5copy";
+
 import { Squares } from "./components/Squares/Squarescomponent";
 
 function App() {
