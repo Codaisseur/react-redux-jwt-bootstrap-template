@@ -1,64 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeroBanner from "../../HeroBanner";
-// import "./style.css";
+
+import { seqSongPattern } from "../../../store/seqState/selectors";
+
+// import {} from "../../../store/seqState/actions";
 
 export default function SeqSelComp() {
-  const [soundStyle, setSoundStyle] = useState("");
+  const [seqselected, setSeq] = useState("");
+  const [inSong, setInSong] = useState([]);
+  const seqsong = useSelector(seqSongPattern);
+
+  console.log(seqsong);
+
+  seqsong.map((pattern) => {
+    console.log(pattern.name);
+  });
 
   return (
     <div className="seq-selector-style">
       <h2>SEQ Selector</h2>
-      <table>
-        <tr>
-          <th>SEQ NAME</th>
-          <th>SELECT</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>
-            <select onChange={(e) => setSoundStyle(e.target.value)}>
-              <option value="SELECT">SEL</option>
-              <option value="DIRK RHYTHM">DIRK RHYHTM</option>
-              <option value="TEACHER ">TEACHER</option>
-              <option value="OTHER ONE">OTHER ONE</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>TEACHER</td>
-          <td>
-            <select onChange={(e) => setSoundStyle(e.target.value)}>
-              <option value="SELECT">SEL</option>
-              <option value="DIRK RHYTHM">DIRK RHYHTM</option>
-              <option value="TEACHER ">TEACHER</option>
-              <option value="OTHER ONE">OTHER ONE</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>DIFFICULT</td>
-          <td>
-            <select onChange={(e) => setSoundStyle(e.target.value)}>
-              <option value="SELECT">SEL</option>
-              <option value="DIRK RHYTHM">DIRK RHYHTM</option>
-              <option value="TEACHER ">TEACHER</option>
-              <option value="OTHER ONE">OTHER ONE</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>NEW</td>
-          <td>
-            <select onChange={(e) => setSoundStyle(e.target.value)}>
-              <option value="SELECT">SEL</option>
-              <option value="DIRK RHYTHM">DIRK RHYHTM</option>
-              <option value="TEACHER ">TEACHER</option>
-              <option value="OTHER ONE">OTHER ONE</option>
-            </select>
-          </td>
-        </tr>
-      </table>
+
+      <button>+-</button>
+      <select onChange={(e) => setSeq(e.target.value)}>
+        {seqsong.map((pattern) => (
+          <option value={pattern.name}>{pattern.name}</option>
+        ))}
+      </select>
     </div>
   );
 }

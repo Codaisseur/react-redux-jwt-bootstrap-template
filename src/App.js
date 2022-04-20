@@ -13,7 +13,11 @@ import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 
 import HomePage from "./pages/HomePage/HomePage";
-import Canvas5copy from "./pages/CanvasP5/Canvasp5copy";
+
+// import Canvas5copy from "./pages/CanvasP5/Canvasp5copy";
+// import Canvas5try from "./pages/CanvasP5/Canvasp5try";
+
+import TonejsPage from "./pages/TonejsPage/TonejsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,8 +35,10 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />
+        <Route path="/tone" element={<TonejsPage />} />
 
-        <Route path="/canvascopy" element={<Canvas5copy />} />
+        {/* <Route path="/canvastry" element={<Canvas5try />} /> */}
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
