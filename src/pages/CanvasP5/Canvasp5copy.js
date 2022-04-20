@@ -6,9 +6,8 @@ import "p5/lib/addons/p5.sound";
 import "./style.css";
 
 //COMPONENTS
-import SeqSelComp from "../../components/SequenseSelector/SeqSelComp";
-import SeqSoundComp from "../../components/SeqSoundSelector/SeqSoundComp";
-import SeqComp from "../../components/SequencerComponent/SeqComp";
+import SeqSelComp from "../../components/SequencorThingamabob/SeqSelComp/SeqSelComp";
+import SeqSoundComp from "../../components/SequencorThingamabob/SeqSoundComp/SeqSoundComp";
 
 export default function Canvas5copy(props) {
   let mySound;

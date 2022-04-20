@@ -7,9 +7,8 @@ import * as Tone from "tone";
 import "./style.css";
 
 //COMPONENTS
-import SeqSelComp from "../../components/SequenseSelector/SeqSelComp";
-import SeqSoundComp from "../../components/SeqSoundSelector/SeqSoundComp";
-import SeqComp from "../../components/SequencerComponent/SeqComp";
+import SeqSelComp from "../../components/SequencorThingamabob/SequenseSelector/SeqSelComp";
+import SeqSoundComp from "../../components/SequencorThingamabob/SeqSoundComp/SeqSoundComp";
 
 export default function Canvas5try(props) {
   let img;

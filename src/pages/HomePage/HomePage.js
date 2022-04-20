@@ -4,9 +4,9 @@ import HeroBanner from "../../components/HeroBanner";
 import "./style.css";
 
 //COMPONENTS
-import SeqSoundComp from "../../components/SeqSoundSelector/SeqSoundComp";
-import SeqComp from "../../components/SequencerComponent/SeqComp";
-import SeqSelComp from "../../components/SequenseSelector/SeqSelComp";
+import SeqSoundComp from "../../components/SequencorThingamabob/SeqSoundComp/SeqSoundComp";
+import SeqComp from "../../components/SequencorThingamabob/SequencerComponent/SeqComp";
+import SeqSelComp from "../../components/SequencorThingamabob/SeqSelComp/SeqSelComp";
 
 import speaker from "../../data/speaker.png";
 

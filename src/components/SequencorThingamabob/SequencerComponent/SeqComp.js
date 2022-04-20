@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectSeqPattern } from "../../../store/seqState/selectors";
-import trigtog from "../../../store/seqState/actions";
+import {
+  TriggerAanUitAtrig,
+  TriggerAanUitBtrig,
+} from "../../../store/seqState/actions";
 
 export default function SeqComp() {
   const dispatch = useDispatch();
@@ -14,17 +17,17 @@ export default function SeqComp() {
 
       {seqPattern.map((i) => (
         <tr key={i.id}>
-          <th>tel {i.id}</th>
           <button
             onClick={() => {
-              dispatch(trigtog());
+              dispatch(TriggerAanUitAtrig(i.id));
             }}
           >
             tel Atrig {i.id}
           </button>
+
           <button
             onClick={() => {
-              console.log(i.id, "Btrig:", i.Btrig);
+              dispatch(TriggerAanUitBtrig(i.id, i.Btrig));
             }}
           >
             tel Btrig {i.id}
