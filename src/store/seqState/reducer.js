@@ -5,8 +5,9 @@ const initialState = {
     { id: 3, Atrig: true, Btrig: false },
     { id: 4, Atrig: false, Btrig: true },
   ],
+  seqPatternMeta: { name: "name", color: "color" },
   seqSoundSelected: "Wood",
-  seqSongPattern: "",
+  seqSongPattern: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -36,12 +37,41 @@ export default function reducer(state = initialState, action) {
       };
     }
 
-    case "SeqSoundSelector": {
+    case "SeqSoundSetter": {
       return {
         ...state,
         seqSoundSelected: action.payload,
       };
     }
+
+    case "Patterncolorsetter": {
+      return {
+        ...state,
+        seqPatternMeta: {
+          ...state.seqPatternMeta,
+          color: action.payload,
+        },
+      };
+    }
+
+    case "Patternnamesetter": {
+      return {
+        ...state,
+        seqPatternMeta: {
+          ...state.seqPatternMeta,
+          name: action.payload,
+        },
+      };
+    }
+
+    case "PatternSaver": {
+      console.log(action.payload);
+      return {
+        ...state,
+        seqSongPattern: [...state.seqSongPattern, action.payload],
+      };
+    }
+
     default:
       return state;
   }

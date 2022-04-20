@@ -9,6 +9,10 @@
   border: 1px solid black;
 }
 
+.seqsavecomp {
+  border: 1px solid black;
+}
+
 .sound-selector-style {
   border: 1px solid black;
 }
@@ -18,14 +22,6 @@
   border: 1px solid black;
 }
 
-.sequencer-style table {
-  border: 1px solid rgb(11, 152, 49);
-}
-
-.sequencer-style td {
-  border: 1px solid rgb(40, 18, 67);
-}
-
-.sequencer-style th {
-  border: 1px solid rgb(211, 212, 124);
+.sound-selector-style {
+  border: 1px solid black;
 }

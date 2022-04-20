@@ -7,6 +7,7 @@ import "./style.css";
 import SeqSoundComp from "../../components/SequencorThingamabob/SeqSoundComp/SeqSoundComp";
 import SeqComp from "../../components/SequencorThingamabob/SequencerComponent/SeqComp";
 import SeqSelComp from "../../components/SequencorThingamabob/SeqSelComp/SeqSelComp";
+import SeqSaveComp from "../../components/SequencorThingamabob/SeqSaveComp/SeqSaveComp";
 
 import speaker from "../../data/speaker.png";
 
@@ -21,7 +22,7 @@ export default function HomePage() {
         <SeqSoundComp />
 
         <SeqComp />
-
+        <SeqSaveComp />
         <SeqSelComp />
       </div>
 

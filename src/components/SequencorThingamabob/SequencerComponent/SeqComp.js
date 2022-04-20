@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectSeqPattern } from "../../../store/seqState/selectors";
+import {
+  selectSeqPattern,
+  selectSeqPatternMeta,
+} from "../../../store/seqState/selectors";
 import {
   TriggerAanUitAtrig,
   TriggerAanUitBtrig,
@@ -10,30 +13,33 @@ import {
 export default function SeqComp() {
   const dispatch = useDispatch();
   const seqPattern = useSelector(selectSeqPattern);
+  const seqPatternMeta = useSelector(selectSeqPatternMeta);
 
   return (
     <div className="sequencer-style">
-      <h2>SEQUENSOR THINGAMABOB</h2>
+      <div style={{ background: seqPatternMeta.color }}>
+        <h2>SEQUENSOR THINGAMABOB</h2>
 
-      {seqPattern.map((i) => (
-        <tr key={i.id}>
-          <button
-            onClick={() => {
-              dispatch(TriggerAanUitAtrig(i.id));
-            }}
-          >
-            {i.Atrig === true ? <p>true</p> : <p>false</p>}
-          </button>
+        {seqPattern.map((i) => (
+          <tr key={i.id}>
+            <button
+              onClick={() => {
+                dispatch(TriggerAanUitAtrig(i.id));
+              }}
+            >
+              {i.Atrig === true ? <p>true</p> : <p>false</p>}
+            </button>
 
-          <button
-            onClick={() => {
-              dispatch(TriggerAanUitBtrig(i.id, i.Btrig));
-            }}
-          >
-            {i.Btrig === true ? <p>true</p> : <p>false</p>}
-          </button>
-        </tr>
-      ))}
+            <button
+              onClick={() => {
+                dispatch(TriggerAanUitBtrig(i.id, i.Btrig));
+              }}
+            >
+              {i.Btrig === true ? <p>true</p> : <p>false</p>}
+            </button>
+          </tr>
+        ))}
+      </div>
     </div>
   );
 }
