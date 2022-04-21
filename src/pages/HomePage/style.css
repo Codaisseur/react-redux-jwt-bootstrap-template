@@ -45,3 +45,45 @@ pattern-seqrows {
 .sound-selector-style {
   border: 1px solid black;
 }
+
+.tbreel-style {
+  position: absolute;
+  bottom: -2%;
+  left: 40%;
+  text-align: center;
+}
+
+.draaiding1 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 55%;
+  bottom: 43%;
+  left: 2%;
+}
+
+.draaiding2 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 56%;
+  bottom: 42%;
+  left: 49%;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

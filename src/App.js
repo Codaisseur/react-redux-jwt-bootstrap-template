@@ -14,10 +14,7 @@ import { getUserWithStoredToken } from "./store/user/actions";
 
 import HomePage from "./pages/HomePage/HomePage";
 
-// import Canvas5copy from "./pages/CanvasP5/Canvasp5copy";
-// import Canvas5try from "./pages/CanvasP5/Canvasp5try";
-
-import TonejsPage from "./pages/TonejsPage/TonejsPage";
+import CanvasInit from "./pages/CanvasP5/CanvasInit";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,9 +32,8 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route path="/tone" element={<TonejsPage />} />
 
-        {/* <Route path="/canvastry" element={<Canvas5try />} /> */}
+        <Route exact path="/canvasinit" element={<CanvasInit />} />
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

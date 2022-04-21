@@ -4,13 +4,7 @@ import * as Tone from "tone";
 import HeroBanner from "../../components/HeroBanner";
 import "./style.css";
 
-import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
-import Sequencerinternet from "./Seqpatternmakercomp";
-
 export default function TonejsPage(props) {
-  const mijnArray1 = ["C1", null, "C1", null, "C1", null, "C1", null];
-  const mijnArray2 = ["C1", "C2", "C1", null, "C1", "C1", "C1", null];
-  const volume = new Tone.Volume(-12).toDestination();
   // console.clear(); //////////////////
 
   // const sampler1 = new Tone.Sampler({
@@ -83,29 +77,6 @@ export default function TonejsPage(props) {
       >
         START
       </button>
-
-      {/* <button
-        onClick={() => {
-          recorder.stop();
-        }}
-      >
-        rec stop
-      </button> */}
-
-      <Pianonotescomponent />
-      <Sequencerinternet />
-
-      {/* {mijnArray1.map((tel) => (
-        <div>
-          <p>{tel}</p>
-        </div>
-      ))}
-
-      {mijnArray2.map((tel) => (
-        <div>
-          <p> 2 {tel}</p>
-        </div>
-      ))} */}
     </div>
   );
 }

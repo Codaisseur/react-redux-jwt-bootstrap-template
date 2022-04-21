@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
-  seqSongPattern,
+  SavedPatterns,
   selectSeqPattern,
 } from "../../../store/seqState/selectors";
 
-import { Extrapatternsavor } from "../../../store/seqState/actions";
+import { PatternUpdaterselected } from "../../../store/seqState/actions";
 
-export default function SeqPatternSelector() {
+export default function SelPatternSelector() {
   const dispatch = useDispatch();
   const [seqselected, setSeq] = useState("");
 
-  const seqsong = useSelector(seqSongPattern);
+  const seqsong = useSelector(SavedPatterns);
   const selectSeqPatternnn = useSelector(selectSeqPattern);
 
   const filtered = seqsong.find((song) => song.name === seqselected);
@@ -21,6 +21,7 @@ export default function SeqPatternSelector() {
   } else {
     // console.log("filtered", filtered.pattern[0]);
     console.log("selectSeqPatternnn", selectSeqPatternnn);
+    dispatch(PatternUpdaterselected(selectSeqPatternnn));
     // dispatch(Extrapatternsavor(filtered.pattern));
   }
 

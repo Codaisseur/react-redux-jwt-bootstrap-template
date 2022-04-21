@@ -6,10 +6,12 @@ import {
   selectSeqPattern,
   selectSeqPatternMeta,
   selectSeqSound,
-  seqSongPattern,
+  SavedPatterns,
 } from "../../store/seqState/selectors";
 
-import { Extrapatternsavor } from "../../store/seqState/actions";
+import { PatternUpdater, Transportupdater } from "../../store/seqState/actions";
+
+import speaker from "../../data/speaker.png";
 
 let notes = ["A1", "B1"];
 let initialPattern = [
@@ -36,10 +38,12 @@ export default function Sequencerinternet(props) {
   const [playState, setPlayState] = useState(Tone.Transport.state);
   const [activeColumn, setColumn] = useState(0);
 
+  const [rmsvalue, setRMSvalue] = useState(0);
+
   const seqPattern = useSelector(selectSeqPattern);
   const seqPatternMeta = useSelector(selectSeqPatternMeta);
   const soundselected = useSelector(selectSeqSound);
-  const songPat = useSelector(seqSongPattern);
+  const songPat = useSelector(SavedPatterns);
 
   // console.log("songPat", songPat);
 
@@ -48,6 +52,11 @@ export default function Sequencerinternet(props) {
   // useEffect(() => {
   //   console.log("songPat:", songPat);
   // }, [songPat]);
+
+  const meter = new Tone.Meter();
+  samples.connect(meter);
+
+  // setInterval(() => console.log(meter.getValue()), 1000);
 
   useEffect(() => {
     const loop = new Tone.Sequence(
@@ -77,7 +86,9 @@ export default function Sequencerinternet(props) {
     setPlayState(Tone.Transport.state);
   }, []);
 
-  //console.log(Tone.Transport.state);
+  useEffect(() => {
+    dispatch(Transportupdater(Tone.Transport.state));
+  }, [Tone.Transport.state]);
 
   // Update pattern by making a copy and inverting the value
   function setPattern({ x, y, value }) {
@@ -113,7 +124,7 @@ export default function Sequencerinternet(props) {
           toggle();
         }}
       >
-        >||
+        Play Stop
       </button>
 
       <div className="pattern-seqrows">
@@ -122,7 +133,7 @@ export default function Sequencerinternet(props) {
             {row.map((value, x) => (
               <button
                 onClick={() => {
-                  dispatch(Extrapatternsavor(pattern));
+                  dispatch(PatternUpdater(pattern));
                   setPattern({ x, y, value }); //
                 }}
               >
@@ -133,13 +144,23 @@ export default function Sequencerinternet(props) {
                       : { background: "white" }
                   }
                 >
-                  {value === 1 ? <p>X</p> : <p>O</p>}
+                  {value === 1 ? <p>I</p> : <p>O</p>}
                 </div>
               </button>
             ))}
           </tr>
         ))}
       </div>
+
+      {/* <img
+        style={{
+          position: "absolute",
+          bottom: "40%",
+          right: "40%",
+        }}
+        src={speaker}
+        alt="speaker"
+      /> */}
     </div>
   );
 }

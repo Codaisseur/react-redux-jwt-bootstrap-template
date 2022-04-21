@@ -1,32 +1,79 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import HeroBanner from "../../components/HeroBanner";
+import { useSelector } from "react-redux";
 import "./style.css";
-import * as Tone from "tone";
+
+import CanvasInit from "../CanvasP5/CanvasInit";
+
+import { Transportstate } from "../../store/seqState/selectors";
 
 //COMPONENTS
 import SelSoundComp from "../../components/SequencorThingamabob/SelSoundComp/SelSoundComp";
-import SeqPatternSelector from "../../components/SequencorThingamabob/SeqPatternSelector/SeqPatternSelector";
+import SelPatternSelector from "../../components/SequencorThingamabob/SelPatternSelector/SelPatternSelector";
 import SeqSaveComp from "../../components/SequencorThingamabob/SeqSaveComp/SeqSaveComp";
 import SeqPatternmaker from "../TonejsPage/Seqpatternmakercomp";
-import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
 
-// import speaker from "../../data/speaker.png";
+//SPEAKERS
+import speaker from "../../data/speaker.png";
+import speakerlinks from "../../data/speakerlinks.png";
+import TBREEL from "../../data/TBREEL.png";
+import TBREELlinks from "../../data/TBREELlinks.png";
+import TBREELrechts from "../../data/TBREELrechts.png";
 
 export default function HomePage() {
+  const TpState = useSelector(Transportstate);
+
   return (
     <div className="wholething">
       <HeroBanner>
         <h1>CREATE A RHYHTM</h1>
       </HeroBanner>
-
       <div className="sequencerblock-style">
         <SelSoundComp />
 
         <SeqPatternmaker />
-
+        <CanvasInit />
         <SeqSaveComp />
-        <SeqPatternSelector />
+        <SelPatternSelector />
+      </div>
+
+      <img
+        style={{ position: "absolute", bottom: "-2%", left: "-2%" }}
+        src={speakerlinks}
+        alt="speakerlinks"
+        height="455"
+      />
+      <img
+        style={{ position: "absolute", bottom: "-4%", right: "-1%" }}
+        src={speaker}
+        alt="speaker"
+        height="460"
+      />
+
+      <div className="tbreel-style">
+        <img style={{}} src={TBREEL} alt="TBREEL" height="345" />
+
+        <div
+          style={
+            TpState === "started"
+              ? { animation: "spin 4s linear infinite" }
+              : console.log("hoi")
+          }
+          className="draaiding1"
+        >
+          <img src={TBREELrechts} alt="TBREELrechts" />
+        </div>
+
+        <div
+          style={
+            TpState === "started"
+              ? { animation: "spin 4s linear infinite" }
+              : console.log("hoi")
+          }
+          className="draaiding2"
+        >
+          <img src={TBREELlinks} alt="TBREELlinks" />
+        </div>
       </div>
     </div>
   );

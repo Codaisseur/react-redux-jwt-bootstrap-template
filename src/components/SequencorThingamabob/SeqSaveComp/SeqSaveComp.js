@@ -11,7 +11,6 @@ import {
   Patterncolorsetter,
   Patternnamesetter,
   PatternSaver,
-  PatternSavor,
 } from "../../../store/seqState/actions";
 
 export default function SeqSaveComp() {
@@ -29,13 +28,6 @@ export default function SeqSaveComp() {
   useEffect(() => {
     dispatch(Patternnamesetter(name));
   }, [name]);
-
-  // useEffect(() => {
-  //   pattern.map((tel) => {
-  //     tel.Atrig === true ? console.log(tel.id, "1") : console.log(tel.id, "0");
-  //     tel.Btrig === true ? console.log(tel.id, "1") : console.log(tel.id, "0");
-  //   });
-  // }, [pattern]);
 
   return (
     <div className="seqsavecomp">

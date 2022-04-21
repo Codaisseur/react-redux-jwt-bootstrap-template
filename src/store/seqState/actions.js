@@ -1,5 +1,10 @@
-export const Extrapatternsavor = (Payload) => ({
-  type: "EXTRAPatternSavor",
+export const PatternUpdater = (Payload) => ({
+  type: "PATTERNUPDATER",
+  payload: Payload,
+});
+
+export const PatternUpdaterselected = (Payload) => ({
+  type: "PATTERNUPDATERSELECTED",
   payload: Payload,
 });
 
@@ -21,4 +26,13 @@ export const Patternnamesetter = (Payload) => ({
 export const PatternSaver = (name, color, pattern) => ({
   type: "PatternSaver",
   payload: { name, color, pattern },
+});
+
+
+
+
+
+export const Transportupdater = (Payload) => ({
+  type: "Transportupdater",
+  payload: Payload,
 });

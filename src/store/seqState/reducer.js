@@ -6,7 +6,8 @@ const initialState = {
   seqPatternMeta: { name: "name", color: "color" },
 
   seqSoundSelected: "Wood",
-  seqSongPattern: [
+  Transportstate: "",
+  SavedPatterns: [
     {
       name: "gerard",
       color: "red",
@@ -28,19 +29,25 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case "EXTRAPatternSavor": {
+    case "PATTERNUPDATER": {
       return {
         ...state,
         seqPattern: action.payload,
       };
     }
 
-    case "PatternSaver": {
+    case "PATTERNUPDATERSELECTED": {
       return {
         ...state,
-        seqSongPattern: [...state.seqSongPattern, action.payload],
+        seqPATRONSELECTED: action.payload,
       };
     }
+
+    case "PatternSaver":
+      return {
+        ...state,
+        SavedPatterns: [...state.SavedPatterns, action.payload],
+      };
 
     case "SeqSoundSetter": {
       return {
@@ -66,6 +73,13 @@ export default function reducer(state = initialState, action) {
           ...state.seqPatternMeta,
           name: action.payload,
         },
+      };
+    }
+
+    case "Transportupdater": {
+      return {
+        ...state,
+        Transportstate: action.payload,
       };
     }
 
