@@ -5,49 +5,33 @@ import HeroBanner from "../../components/HeroBanner";
 import "./style.css";
 
 import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
-
-let ready = false;
+import Sequencerinternet from "./Seqpatternmakercomp";
 
 export default function TonejsPage(props) {
-  const mijnArray = ["C1", null, ["E1", "F1"], "D2", "E2", "F2"];
-  const mijnArray2 = ["C1", ["D1", "E1"], "F1", null, "D2", "E2", "F2"];
-  const mijnArray3 = ["C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1"];
-
+  const mijnArray1 = ["C1", null, "C1", null, "C1", null, "C1", null];
+  const mijnArray2 = ["C1", "C2", "C1", null, "C1", "C1", "C1", null];
+  const volume = new Tone.Volume(-12).toDestination();
   // console.clear(); //////////////////
-  const player = new Tone.Player(
-    "http://127.0.0.1:5500/src/data/MT40_Drums/BD_MT40_Valve3.wav"
-  ).toDestination();
-  const kickDrum = new Tone.MembraneSynth({
-    volume: 4,
-  }).toDestination();
 
-  const sampler = new Tone.Sampler({
-    urls: {
-      A1: "BD_MT40_Valve3.wav",
-      C2: "Perc_MT40_DOA1.wav",
-    },
-    baseUrl: "http://127.0.0.1:5500/src/data/MT40_Drums/",
-  }).toDestination();
+  // const sampler1 = new Tone.Sampler({
+  //   urls: {
+  //     A1: "BD_MT40_Valve3.wav",
+  //     C2: "HH_MT40_Valve2.wav",
+  //   },
+  //   baseUrl: "http://127.0.0.1:5500/src/data/MT40_Drums/",
+  // }).connect(volume);
 
-  const sampler2 = new Tone.Sampler({
-    urls: {
-      A1: "HH_MT40_DOA1.wav",
-      C2: "Perc_MT40_DOA4.wav",
-    },
-    baseUrl: "http://127.0.0.1:5500/src/data/MT40_Drums/",
-  }).toDestination();
+  // const sampler2 = new Tone.Sampler({
+  //   urls: {
+  //     A1: "HH_MT40_Valve2.wav",
+  //     C2: "Perc_MT40_DOA1.wav",
+  //   },
+  //   baseUrl: "http://127.0.0.1:5500/src/data/MT40_Drums/",
+  // }).connect(volume);
 
-  const sampler3 = new Tone.Sampler({
-    urls: {
-      A1: "HH_MT40_DOA1.wav",
-      C2: "Perc_MT40_DOA4.wav",
-    },
-    baseUrl: "http://127.0.0.1:5500/src/data/MT40_Drums/",
-  }).toDestination();
-
-  // const seq = new Tone.Sequence((time, note) => {
-  //   sampler.triggerAttackRelease(note, 0.1, time);
-  // }, mijnArray).start(0);
+  // const seq1 = new Tone.Sequence((time, note) => {
+  //   sampler1.triggerAttackRelease(note, 0.1, time);
+  // }, mijnArray1).start(0);
   // Tone.Transport.start();
 
   // const seq2 = new Tone.Sequence((time, note) => {
@@ -55,42 +39,34 @@ export default function TonejsPage(props) {
   // }, mijnArray2).start(0);
   // Tone.Transport.start();
 
-  const seq3 = new Tone.Sequence((time, note) => {
-    sampler3.triggerAttackRelease(note, 0.1, time);
-  }, mijnArray3).start(0);
-  Tone.Transport.start();
+  // const recorder = new Tone.Recorder();
+  // // const synth = new Tone.Synth().connect(recorder);
+  // // start recording
+  // recorder.start();
+  // // generate a few notes
 
-  window.addEventListener(
-    "keydown",
-    function (event) {
-      if (event.defaultPrevented) {
-        return; // Do nothing if the event was already processed
-      }
-      switch (event.key) {
-        case "q":
-          sampler.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5);
-          break;
-        case "w":
-          player.start();
-          break;
-        case "a":
-          kickDrum.triggerAttackRelease("C1", "8n");
-          break;
-        case "s":
-          kickDrum.triggerAttackRelease("C2", "32n");
-          break;
-        default:
-          return; // Quit when this doesn't handle the key event.
-      }
-      event.preventDefault();
-    },
-    true
-  );
+  // // wait for the notes to end and stop the recording
+  // setTimeout(async () => {
+  //   // the recorded audio is returned as a blob
+  //   const recording = await recorder.stop();
+  //   // download the recording by creating an anchor element and blob url
+  //   const url = URL.createObjectURL(recording);
+  //   const anchor = document.createElement("a");
+  //   anchor.download = "recording.webm";
+  //   anchor.href = url;
+  //   anchor.click();
+  // }, 4000);
+
+  // const meter = new Tone.Meter();
+  // // connect mic to the meter
+  // sampler1.connect(meter);
+  // // the current level of the mic
+  // setInterval(() => console.log(meter.getValue()), 5);
 
   return (
     <div className="toneJs-page">
       <HeroBanner>
-        <h1>Tone.js Page</h1>
+        <h1>TONEJES</h1>
       </HeroBanner>
       <button
         onClick={() => {
@@ -107,28 +83,29 @@ export default function TonejsPage(props) {
       >
         START
       </button>
-      <button
-        onClick={() => {
-          kickDrum.triggerAttackRelease("C1", "8n");
-        }}
-      >
-        BOENK
-      </button>
-      <button
-        onClick={() => {
-          kickDrum.triggerAttackRelease("C2", "32n");
-        }}
-      >
-        KLENK
-      </button>
-      <Pianonotescomponent />
 
-      {mijnArray3.map((tel) => (
+      {/* <button
+        onClick={() => {
+          recorder.stop();
+        }}
+      >
+        rec stop
+      </button> */}
+
+      <Pianonotescomponent />
+      <Sequencerinternet />
+
+      {/* {mijnArray1.map((tel) => (
         <div>
           <p>{tel}</p>
-          <input type="checkbox" value="C1" />
         </div>
       ))}
+
+      {mijnArray2.map((tel) => (
+        <div>
+          <p> 2 {tel}</p>
+        </div>
+      ))} */}
     </div>
   );
 }
