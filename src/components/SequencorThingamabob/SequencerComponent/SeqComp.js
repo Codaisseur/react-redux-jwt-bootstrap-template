@@ -18,8 +18,6 @@ export default function SeqComp() {
   return (
     <div className="sequencer-style">
       <div style={{ background: seqPatternMeta.color }}>
-        <h2>SEQUENSOR THINGAMABOB</h2>
-
         {seqPattern.map((i) => (
           <tr key={i.id}>
             <button

@@ -11,15 +11,35 @@
 
 .seqsavecomp {
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
 .sound-selector-style {
   border: 1px solid black;
-}
-.sequencer-style {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+}
+/* .sequencer-style {
+  display: flex;
+  flex-direction: column;
+
+} */
+
+.pattern-component-style {
+  border: 1px solid rgb(28, 135, 101);
+  background-color: rgba(247, 246, 246, 0.953);
+}
+
+.pattern-component-style button {
+  border: 1px solid rgb(131, 135, 28);
+  background-color: rgba(133, 68, 147, 0.909);
+  height: 100px;
+  width: 60px;
+}
+
+pattern-seqrows {
+  background-color: rgba(142, 147, 68, 0.909);
 }
 
 .sound-selector-style {

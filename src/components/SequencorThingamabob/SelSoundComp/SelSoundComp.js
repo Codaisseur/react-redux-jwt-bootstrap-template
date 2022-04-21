@@ -5,7 +5,7 @@ import HeroBanner from "../../HeroBanner";
 import { SeqSoundSetter } from "../../../store/seqState/actions";
 import { selectSeqSound } from "../../../store/seqState/selectors";
 
-export default function SeqSoundComp() {
+export default function SelSoundComp() {
   const [soundStyle, setSoundStyle] = useState("loud");
   const dispatch = useDispatch();
   const soundSelected = useSelector(selectSeqSound);
@@ -14,7 +14,7 @@ export default function SeqSoundComp() {
 
   return (
     <div className="sound-selector-style">
-      <h2>Sound Selector</h2>
+      <h3>Sound Selector</h3>
       <select onChange={(e) => setSoundStyle(e.target.value)}>
         <option value="Sound selector">Sound Selector</option>
         <option value="Loud">Loud</option>

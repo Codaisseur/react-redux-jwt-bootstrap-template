@@ -11,12 +11,14 @@ import {
   Patterncolorsetter,
   Patternnamesetter,
   PatternSaver,
+  PatternSavor,
 } from "../../../store/seqState/actions";
 
 export default function SeqSaveComp() {
   const [color, setColor] = useState("Blue");
   const [name, setName] = useState("RITME1");
   const dispatch = useDispatch();
+
   const patternMeta = useSelector(selectSeqPatternMeta);
   const pattern = useSelector(selectSeqPattern); // KRIJG TIE NORMAAL UIT DE STORE
 
@@ -35,14 +37,9 @@ export default function SeqSaveComp() {
   //   });
   // }, [pattern]);
 
-  const saveFunction = () => {
-    // console.log("name:", patternMeta.name, "color", patternMeta.color, pattern);
-    dispatch(PatternSaver(patternMeta.name, patternMeta.color, pattern));
-  };
-
   return (
     <div className="seqsavecomp">
-      <h4>save pattern</h4>
+      <h3>save pattern</h3>
 
       <select onChange={(e) => setColor(e.target.value)}>
         <option value="Color">Color</option>
@@ -64,7 +61,7 @@ export default function SeqSaveComp() {
 
       <button
         onClick={() => {
-          saveFunction();
+          dispatch(PatternSaver(patternMeta.name, patternMeta.color, pattern));
         }}
       >
         SAVE

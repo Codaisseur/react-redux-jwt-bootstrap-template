@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeroBanner from "../../components/HeroBanner";
 import "./style.css";
-
 import * as Tone from "tone";
 
 //COMPONENTS
-import SeqSoundComp from "../../components/SequencorThingamabob/SeqSoundComp/SeqSoundComp";
-import SeqSelComp from "../../components/SequencorThingamabob/SeqSelComp/SeqSelComp";
+import SelSoundComp from "../../components/SequencorThingamabob/SelSoundComp/SelSoundComp";
+import SeqPatternSelector from "../../components/SequencorThingamabob/SeqPatternSelector/SeqPatternSelector";
 import SeqSaveComp from "../../components/SequencorThingamabob/SeqSaveComp/SeqSaveComp";
 import SeqPatternmaker from "../TonejsPage/Seqpatternmakercomp";
 import Pianonotescomponent from "../../components/TonejsComponents/Piano notes/Pianonotescomponent";
@@ -22,14 +21,13 @@ export default function HomePage() {
       </HeroBanner>
 
       <div className="sequencerblock-style">
-        <SeqSoundComp />
+        <SelSoundComp />
 
-        {/* <SeqComp /> */}
         <SeqPatternmaker />
+
         <SeqSaveComp />
-        <SeqSelComp />
+        <SeqPatternSelector />
       </div>
-      <Pianonotescomponent />
     </div>
   );
 }

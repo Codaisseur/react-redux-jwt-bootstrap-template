@@ -6,9 +6,10 @@ import {
   selectSeqPattern,
   selectSeqPatternMeta,
   selectSeqSound,
+  seqSongPattern,
 } from "../../store/seqState/selectors";
 
-import { updatePattern, Extrapatternsavor } from "../../store/seqState/actions";
+import { Extrapatternsavor } from "../../store/seqState/actions";
 
 let notes = ["A1", "B1"];
 let initialPattern = [
@@ -31,16 +32,22 @@ const samples = new Tone.Sampler({
 }).toDestination();
 
 export default function Sequencerinternet(props) {
+  const dispatch = useDispatch();
   const [playState, setPlayState] = useState(Tone.Transport.state);
   const [activeColumn, setColumn] = useState(0);
 
   const seqPattern = useSelector(selectSeqPattern);
   const seqPatternMeta = useSelector(selectSeqPatternMeta);
   const soundselected = useSelector(selectSeqSound);
+  const songPat = useSelector(seqSongPattern);
 
-  const [pattern, updatePattern] = useState(initialPattern); // comes from redux store now initialPattern
+  // console.log("songPat", songPat);
 
-  const dispatch = useDispatch();
+  const [pattern, updatePattern] = useState(seqPattern); // comes from redux store now initialPattern
+
+  // useEffect(() => {
+  //   console.log("songPat:", songPat);
+  // }, [songPat]);
 
   useEffect(() => {
     const loop = new Tone.Sequence(
@@ -65,9 +72,12 @@ export default function Sequencerinternet(props) {
 
   // Toggle playing / stopped
   const toggle = useCallback(() => {
+    Tone.start();
     Tone.Transport.toggle();
     setPlayState(Tone.Transport.state);
   }, []);
+
+  //console.log(Tone.Transport.state);
 
   // Update pattern by making a copy and inverting the value
   function setPattern({ x, y, value }) {
@@ -93,14 +103,8 @@ export default function Sequencerinternet(props) {
       notes = ["A2", "G1"];
   }
 
-  const saveFunction = () => {
-    console.log("im clicked", pattern);
-    dispatch(Extrapatternsavor(pattern));
-    // console.log("name:", patternMeta.name, "color", patternMeta.color, pattern);
-  };
-
   return (
-    <div>
+    <div className="pattern-component-style">
       <h2>Pattern Maker</h2>
       <p>{(activeColumn + 1) / 2 + 0.5} </p>
 
@@ -109,16 +113,15 @@ export default function Sequencerinternet(props) {
           toggle();
         }}
       >
-        PLAY/STOP
+        >||
       </button>
 
-      <div>
+      <div className="pattern-seqrows">
         {pattern.map((row, y) => (
           <tr key={y}>
             {row.map((value, x) => (
               <button
                 onClick={() => {
-                  // console.log(pattern);
                   dispatch(Extrapatternsavor(pattern));
                   setPattern({ x, y, value }); //
                 }}
@@ -132,7 +135,6 @@ export default function Sequencerinternet(props) {
                 >
                   {value === 1 ? <p>X</p> : <p>O</p>}
                 </div>
-                ((0))
               </button>
             ))}
           </tr>

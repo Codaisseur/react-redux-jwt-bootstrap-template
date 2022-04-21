@@ -1,20 +1,44 @@
 const initialState = {
   seqPattern: [
-    [1, 1, 1, 1, 1, 1, 0, 0],
-    [1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1],
   ],
   seqPatternMeta: { name: "name", color: "color" },
+
   seqSoundSelected: "Wood",
-  seqSongPattern: [],
+  seqSongPattern: [
+    {
+      name: "gerard",
+      color: "red",
+      pattern: [
+        [1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 1, 0, 1, 0, 1, 0, 1],
+      ],
+    },
+    {
+      name: "donkie",
+      color: "purple",
+      pattern: [
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 1, 0, 1, 0, 1],
+      ],
+    },
+  ],
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case "PatternSavor": {
-      console.log("Payload", action.payload);
+    case "EXTRAPatternSavor": {
       return {
         ...state,
         seqPattern: action.payload,
+      };
+    }
+
+    case "PatternSaver": {
+      return {
+        ...state,
+        seqSongPattern: [...state.seqSongPattern, action.payload],
       };
     }
 
@@ -42,14 +66,6 @@ export default function reducer(state = initialState, action) {
           ...state.seqPatternMeta,
           name: action.payload,
         },
-      };
-    }
-
-    case "PatternSaver": {
-      console.log(action.payload);
-      return {
-        ...state,
-        seqSongPattern: [...state.seqSongPattern, action.payload],
       };
     }
 

@@ -1,5 +1,5 @@
 export const Extrapatternsavor = (Payload) => ({
-  type: "PatternSavor",
+  type: "EXTRAPatternSavor",
   payload: Payload,
 });
 
