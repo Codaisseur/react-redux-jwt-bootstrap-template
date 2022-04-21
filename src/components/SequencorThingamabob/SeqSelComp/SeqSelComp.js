@@ -17,14 +17,17 @@ export default function SeqSelComp() {
 
   return (
     <div className="seq-selector-style">
-      <h2>SEQ Selector</h2>
+      <h2>Pattern selector</h2>
 
-      <button>+-</button>
+      <button>+</button>
       <select onChange={(e) => setSeq(e.target.value)}>
         {seqsong.map((pattern) => (
           <option value={pattern.name}>{pattern.name}</option>
         ))}
       </select>
+
+
+
     </div>
   );
 }

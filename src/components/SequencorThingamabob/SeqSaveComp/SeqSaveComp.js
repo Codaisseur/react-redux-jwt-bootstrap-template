@@ -18,7 +18,7 @@ export default function SeqSaveComp() {
   const [name, setName] = useState("RITME1");
   const dispatch = useDispatch();
   const patternMeta = useSelector(selectSeqPatternMeta);
-  const pattern = useSelector(selectSeqPattern);
+  const pattern = useSelector(selectSeqPattern); // KRIJG TIE NORMAAL UIT DE STORE
 
   useEffect(() => {
     dispatch(Patterncolorsetter(color));
@@ -42,7 +42,7 @@ export default function SeqSaveComp() {
 
   return (
     <div className="seqsavecomp">
-      <h2>SAVOR</h2>
+      <h4>save pattern</h4>
 
       <select onChange={(e) => setColor(e.target.value)}>
         <option value="Color">Color</option>
@@ -62,8 +62,6 @@ export default function SeqSaveComp() {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <p>Name: {patternMeta.name}</p>
-      <p>Color: {patternMeta.color}</p>
       <button
         onClick={() => {
           saveFunction();
