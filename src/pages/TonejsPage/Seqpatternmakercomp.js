@@ -12,11 +12,10 @@ import {
   TriggerAanUitBtrig,
 } from "../../store/seqState/actions";
 
-
-let notes3 = ["C2", "A1"];
-let notes2 = ["C3", "D3"];
-let notes1 = ["F3", "E3"];
-let notes = ["A3", "D3"];
+// let notes3 = ;
+// let notes2 = ["C3", "D3"];
+// let notes1 = ["F3", "E3"];
+let notes = ["A1", "B1"];
 
 let initialPattern = [
   [0, 0, 1, 0, 0, 0, 1, 0],
@@ -25,14 +24,16 @@ let initialPattern = [
 
 const sampler = new Tone.Sampler({
   urls: {
-    A1: "BD_MT40_Valve3.wav",
-    C2: "HH_MT40_Valve2.wav",
-    C3: "Perc_MT40_DOA3.wav",
-    D3: "Perc_MT40_Raw4.wav",
-    E3: "SD_MT40_DOA4.wav",
-    F3: "BD_MT40_Raw1.wav",
+    A1: "/Loud/bdfilm.wav",
+    B1: "/Loud/jaydeesnare.wav",
+    C1: "/Metal/cowbell.wav",
+    D1: "/Metal/hih.wav",
+    E1: "/Soft/conga.wav",
+    F1: "/Soft/snap.wav",
+    G1: "/Wood/kick.wav",
+    A2: "/Wood/clap.wav",
   },
-  baseUrl: "http://127.0.0.1:5500/src/data/MT40_Drums/",
+  baseUrl: "http://127.0.0.1:5500/src/data/Drumsounds",
 }).toDestination();
 
 export default function Sequencerinternet(props) {
@@ -43,6 +44,23 @@ export default function Sequencerinternet(props) {
   const seqPattern = useSelector(selectSeqPattern);
   const seqPatternMeta = useSelector(selectSeqPatternMeta);
   const soundselected = useSelector(selectSeqSound);
+
+  switch (soundselected) {
+    case "Loud":
+      notes = ["B1", "A1"];
+      break;
+    case "Soft":
+      notes = ["D1", "C1"];
+      break;
+    case "Metal":
+      notes = ["F1", "E1"];
+      break;
+    case "Wood":
+      notes = ["A2", "G1"];
+      break;
+    default:
+      notes = ["A2", "G1"];
+  }
 
   useEffect(() => {
     const loop = new Tone.Sequence(
@@ -86,15 +104,7 @@ export default function Sequencerinternet(props) {
           toggle();
         }}
       >
-        STOP
-      </button>
-
-      <button
-        onClick={() => {
-          Tone.Transport.start();
-        }}
-      >
-        START
+        PLAY/STOP
       </button>
 
       {/* {pattern.map((row, y) => (

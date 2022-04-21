@@ -11,8 +11,6 @@ export default function SeqSelComp() {
   const [inSong, setInSong] = useState([]);
   const seqsong = useSelector(seqSongPattern);
 
-  console.log(seqsong);
-
   seqsong.map((pattern) => {
     console.log(pattern.name);
   });
