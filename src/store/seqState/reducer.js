@@ -1,7 +1,7 @@
 const initialState = {
   seqPattern: [
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 1, 0],
+    [1, 0, 1, 0, 1, 0, 1, 0],
   ],
 
   seqPatternMeta: { name: "name", color: "color" },

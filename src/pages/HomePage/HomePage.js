@@ -13,6 +13,7 @@ import SelPatternSelector from "../../components/seqPatternMakerComponents/SelPa
 import SeqSaveComp from "../../components/seqPatternMakerComponents/SeqSaveComp/SeqSaveComp";
 import SeqPatternmaker from "../../components/seqPatternMakerComponents/SequencerComponent/Seqpatternmakercomp";
 import StartstopComp from "../../components/seqPatternMakerComponents/Startstopcomp/Startstopcomp";
+import Recordercomponent from "../../components/seqPatternMakerComponents/recorder/Recordercomponent";
 
 export default function HomePage() {
   const TpState = useSelector(Transportstate);
@@ -22,11 +23,12 @@ export default function HomePage() {
   return (
     <div className="wholething">
       <div className="sequencerblock-style">
-        <StartstopComp />
         <SelSoundComp />
-
-        <SeqPatternmaker />
-
+        <Recordercomponent />
+        <div>
+          <SeqPatternmaker />
+          <StartstopComp />
+        </div>
         <SeqSaveComp />
         <SelPatternSelector />
       </div>
