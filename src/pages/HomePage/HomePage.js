@@ -15,6 +15,8 @@ import SeqPatternmaker from "../../components/seqPatternMakerComponents/Sequence
 import StartstopComp from "../../components/seqPatternMakerComponents/Startstopcomp/Startstopcomp";
 import Recordercomponent from "../../components/seqPatternMakerComponents/recorder/Recordercomponent";
 
+import Volumeslidercomp from "../../components/seqPatternMakerComponents/Volumeslidercomp/Volumeslidercomp";
+
 export default function HomePage() {
   const TpState = useSelector(Transportstate);
 
@@ -23,6 +25,7 @@ export default function HomePage() {
   return (
     <div className="wholething">
       <div className="sequencerblock-style">
+        <Volumeslidercomp />
         <SelSoundComp />
         <Recordercomponent />
         <div>

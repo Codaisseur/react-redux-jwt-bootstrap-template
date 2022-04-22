@@ -19,6 +19,10 @@ let initialPattern = [
   [1, 0, 0, 1, 1, 0, 0, 0],
 ];
 
+let volumeschakelaar = -20;
+const vol = new Tone.Volume(volumeschakelaar).toDestination();
+const feedbackDelay = new Tone.FeedbackDelay("16n", 0.05).connect(vol);
+
 const samples = new Tone.Sampler({
   urls: {
     A1: "/Loud/bdfilm.wav",
@@ -31,9 +35,11 @@ const samples = new Tone.Sampler({
     A2: "/Wood/clap.wav",
   },
   baseUrl: "http://127.0.0.1:5500/src/data/Drumsounds",
-}).toDestination();
+}).connect(feedbackDelay);
 
 export default function Sequencerinternet(props) {
+  const [volume, setVolume] = useState(0);
+  const [filter, setFilter] = useState();
   const dispatch = useDispatch();
   const [playState, setPlayState] = useState(Tone.Transport.state);
   const [activeColumn, setColumn] = useState(0);
@@ -87,6 +93,8 @@ export default function Sequencerinternet(props) {
       notes = ["A2", "G1"];
   }
 
+  vol.volume.value = volume;
+
   return (
     <div className="pattern-component-style">
       <h2>Pattern Maker</h2>
@@ -115,6 +123,38 @@ export default function Sequencerinternet(props) {
             ))}
           </tr>
         ))}
+      </div>
+
+      <div className="volume-slider">
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="-30"
+            max="0"
+            value={volume}
+            onChange={(e) => {
+              setVolume(e.target.value);
+            }}
+            step="1"
+          />
+          volume : {volume}
+        </div>
+      </div>
+
+      <div className="volume-slider">
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            value={filter}
+            onChange={(e) => {
+              setFilter(e.target.value);
+            }}
+            step="0.1"
+          />
+          filter : {filter}
+        </div>
       </div>
     </div>
   );
