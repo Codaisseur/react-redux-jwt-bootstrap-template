@@ -2,11 +2,12 @@ import React, { useCallback, useState, useEffect } from "react";
 import * as Tone from "tone";
 import { useDispatch, useSelector } from "react-redux";
 
+import CanvasInitmeter from "../CanvasInitmeter";
+
 import {
   selectSeqPattern,
   selectSeqPatternMeta,
   selectSeqSound,
-  SavedPatterns,
 } from "../../../store/seqState/selectors";
 
 import {
@@ -43,6 +44,7 @@ export default function Sequencerinternet(props) {
 
   const seqPattern = useSelector(selectSeqPattern);
   const seqPatternMeta = useSelector(selectSeqPatternMeta);
+
   const soundselected = useSelector(selectSeqSound);
 
   // console.log("songPat", songPat);
@@ -112,6 +114,8 @@ export default function Sequencerinternet(props) {
 
   return (
     <div className="pattern-component-style">
+      {/* <CanvasInitmeter /> */}
+
       <h2>Pattern Maker</h2>
       <p>{(activeColumn + 1) / 2 + 0.5} </p>
 

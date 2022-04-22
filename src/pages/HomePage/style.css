@@ -20,6 +20,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.CanvasInit {
+  border: 120px solid rgb(220, 158, 158);
+}
 /* .sequencer-style {
   display: flex;
   flex-direction: column;

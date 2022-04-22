@@ -28,10 +28,6 @@ export const PatternSaver = (name, color, pattern) => ({
   payload: { name, color, pattern },
 });
 
-
-
-
-
 export const Transportupdater = (Payload) => ({
   type: "Transportupdater",
   payload: Payload,

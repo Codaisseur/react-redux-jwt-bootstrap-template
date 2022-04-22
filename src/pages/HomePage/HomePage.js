@@ -8,10 +8,10 @@ import CanvasInit from "../CanvasP5/CanvasInit";
 import { Transportstate } from "../../store/seqState/selectors";
 
 //COMPONENTS
-import SelSoundComp from "../../components/SequencorThingamabob/SelSoundComp/SelSoundComp";
-import SelPatternSelector from "../../components/SequencorThingamabob/SelPatternSelector/SelPatternSelector";
-import SeqSaveComp from "../../components/SequencorThingamabob/SeqSaveComp/SeqSaveComp";
-import SeqPatternmaker from "../../components/SequencorThingamabob/SequencerComponent/Seqpatternmakercomp";
+import SelSoundComp from "../../components/seqPatternMakerComponents/SelSoundComp/SelSoundComp";
+import SelPatternSelector from "../../components/seqPatternMakerComponents/SelPatternSelector/SelPatternSelector";
+import SeqSaveComp from "../../components/seqPatternMakerComponents/SeqSaveComp/SeqSaveComp";
+import SeqPatternmaker from "../../components/seqPatternMakerComponents/SequencerComponent/Seqpatternmakercomp";
 
 //SPEAKERS
 import speaker from "../../data/speaker.png";
@@ -25,9 +25,6 @@ export default function HomePage() {
 
   return (
     <div className="wholething">
-      <HeroBanner>
-        <h1>CREATE A RHYHTM</h1>
-      </HeroBanner>
       <div className="sequencerblock-style">
         <SelSoundComp />
 
@@ -36,8 +33,6 @@ export default function HomePage() {
         <SeqSaveComp />
         <SelPatternSelector />
       </div>
-
-
 
       <img
         style={{ position: "absolute", bottom: "-2%", left: "-2%" }}

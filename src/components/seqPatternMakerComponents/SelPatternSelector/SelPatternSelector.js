@@ -6,30 +6,32 @@ import {
   selectSeqPattern,
 } from "../../../store/seqState/selectors";
 
-import { PatternUpdaterselected } from "../../../store/seqState/actions";
+// import { PatternUpdaterselected } from "../../../store/seqState/actions";
 
 export default function SelPatternSelector() {
   const dispatch = useDispatch();
   const [seqselected, setSeq] = useState("");
 
-  const seqsong = useSelector(SavedPatterns);
+  const savedsongs = useSelector(SavedPatterns);
   const selectSeqPatternnn = useSelector(selectSeqPattern);
 
-  // const filtered = seqsong.find((song) => song.name === seqselected);
-  // if (filtered === undefined) {
-  //   // console.log("ik ben nog undfeind");
-  // } else {
-  //   // console.log("filtered", filtered.pattern[0]);
-  //   console.log("selectSeqPatternnn", selectSeqPatternnn);
-  //   dispatch(PatternUpdaterselected(selectSeqPatternnn));
-  //   // dispatch(Extrapatternsavor(filtered.pattern));
-  // }
+  console.log("savedsongs", savedsongs); // wordt dus op elke change geupdate :S
+
+  const filtered = savedsongs.find((song) => song.name === seqselected);
+  if (filtered === undefined) {
+    // console.log("ik ben nog undfeind");
+  } else {
+    // console.log("filtered", filtered.pattern[0]);
+    console.log("selectSeqPatternnn", selectSeqPatternnn);
+    // dispatch(PatternUpdaterselected(selectSeqPatternnn));
+    // dispatch(Extrapatternsavor(filtered.pattern));
+  }
 
   return (
     <div className="seq-selector-style">
       <h3>Pattern selector</h3>
 
-      {seqsong.map((pattern) => (
+      {savedsongs.map((pattern) => (
         <div style={{ background: pattern.color }}>
           <button>-</button>
           {pattern.name}
@@ -38,11 +40,11 @@ export default function SelPatternSelector() {
         </div>
       ))}
 
-      <select onChange={(e) => setSeq(e.target.value)}>
-        {seqsong.map((pattern) => (
+      {/* <select onChange={(e) => setSeq(e.target.value)}>
+        {savedsongs.map((pattern) => (
           <option value={pattern.name}>{pattern.name}</option>
         ))}
-      </select>
+      </select> */}
     </div>
   );
 }

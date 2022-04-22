@@ -11,47 +11,41 @@ export default function CanvasInit(props) {
   meter = new Tone.Meter();
 
   const setup = (p5, canvasParentRef) => {
-    const cnv = p5.createCanvas(500, 500).parent(canvasParentRef);
+    const cnv = p5
+      .createCanvas(p5.windowWidth / 4, p5.windowHeight / 3)
+      .parent(canvasParentRef);
     p5.background(0);
     p5.fill(230);
-    p5.ellipse(40, 230, 120, 70);
-    p5.text("hoiHOIHOIHOIHOIH", 20, 30);
+
   };
+  function windowResized(p5, canvasParentRef) {
+    p5.resizeCanvas(p5.windowWidth / 4, p5.windowHeight / 3);
+  }
 
   const draw = (p5) => {
-    // For consistent sizing regardless of portrait/landscape
     const dim = Math.min(p5.width, p5.height);
-
-    // Black background
     p5.background(0);
 
-    // Draw a 'play' button
-    p5.noStroke();
+    const diameter = dim * 0.2;
+    p5.fill("tomato");
 
-    if (mic && mic.state === "started") {
-      const diameter = dim * 0.2;
-      p5.fill("tomato");
-      p5.circle(p5.width / 2, p5.height / 2, diameter);
+    p5.noFill();
+    p5.stroke("tomato");
 
-      p5.noFill();
-      p5.stroke("tomato");
-      const levelDiameter = p5.map(
-        meter.getLevel(),
-        -100,
-        -30,
-        diameter,
-        diameter * 3,
-        true
-      );
-      p5.circle(p5.width / 2, p5.height / 2, levelDiameter);
-    } else {
-      p5.fill(255);
-    }
+    const levelDiameter = p5.map(
+      meter.getLevel(),
+      -100,
+      40,
+      diameter,
+      diameter * 3,
+      true
+    );
+    p5.circle(p5.width / 2, p5.height / 2, levelDiameter);
+
+    p5.text("HOI HOI HOI HOI HOI", 20, 400 - levelDiameter);
   };
 
-  mic = new Tone.UserMedia();
-  mic.open();
-  mic.connect(meter);
+  Tone.Destination.connect(meter);
 
-  return <Sketch setup={setup} draw={draw} />;
+  return <Sketch setup={setup} windowResized={windowResized} draw={draw} />;
 }

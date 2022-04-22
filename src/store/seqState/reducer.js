@@ -1,26 +1,31 @@
+import { SavedPatterns } from "./selectors";
+
 const initialState = {
   seqPattern: [
-    [1, 1, 1, 1, 1, 0, 1, 0],
-    [1, 1, 1, 1, 1, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
   ],
+
   seqPatternMeta: { name: "name", color: "color" },
 
   seqSoundSelected: "Wood",
+
   Transportstate: "",
+
   SavedPatterns: [
     {
       name: "gerard",
       color: "red",
       pattern: [
-        [1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 0, 1, 1, 1, 1, 1],
+        [1, 0, 0, 1, 1, 1, 1, 1],
       ],
     },
     {
       name: "donkie",
       color: "purple",
       pattern: [
-        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 1, 0, 1, 0, 0],
         [0, 1, 0, 1, 0, 1, 0, 1],
       ],
     },
@@ -30,22 +35,16 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "PATTERNUPDATER": {
-      console.log("PATTERNUPDATER", action.payload);
+      // console.log("PATTERNUPDATER", action.payload);
       return {
         ...state,
         seqPattern: action.payload,
       };
     }
 
-    case "PATTERNUPDATERSELECTED": {
-      return {
-        ...state,
-        seqPATRONSELECTED: action.payload,
-      };
-    }
-
     case "PatternSaver":
       console.log("PatternSaver", action.payload);
+
       return {
         ...state,
         SavedPatterns: [...state.SavedPatterns, action.payload],
@@ -57,7 +56,6 @@ export default function reducer(state = initialState, action) {
         seqSoundSelected: action.payload,
       };
     }
-
     case "Patterncolorsetter": {
       return {
         ...state,
@@ -67,7 +65,6 @@ export default function reducer(state = initialState, action) {
         },
       };
     }
-
     case "Patternnamesetter": {
       return {
         ...state,
@@ -77,7 +74,6 @@ export default function reducer(state = initialState, action) {
         },
       };
     }
-
     case "Transportupdater": {
       return {
         ...state,
