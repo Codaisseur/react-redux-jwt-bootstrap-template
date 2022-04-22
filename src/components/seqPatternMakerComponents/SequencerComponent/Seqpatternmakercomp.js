@@ -2,8 +2,6 @@ import React, { useCallback, useState, useEffect } from "react";
 import * as Tone from "tone";
 import { useDispatch, useSelector } from "react-redux";
 
-import CanvasInitmeter from "../CanvasInitmeter";
-
 import {
   selectSeqPattern,
   selectSeqPatternMeta,
@@ -14,8 +12,6 @@ import {
   PatternUpdater,
   Transportupdater,
 } from "../../../store/seqState/actions";
-
-import speaker from "../../../data/speaker.png";
 
 let notes = ["A1", "B1"];
 let initialPattern = [
@@ -44,29 +40,19 @@ export default function Sequencerinternet(props) {
 
   const seqPattern = useSelector(selectSeqPattern);
   const seqPatternMeta = useSelector(selectSeqPatternMeta);
-
   const soundselected = useSelector(selectSeqSound);
 
   // console.log("songPat", songPat);
 
-  const [pattern, updatePattern] = useState(seqPattern); // comes from redux store now initialPattern
-
-  // useEffect(() => {
-  //   console.log("songPat:", songPat);
-  // }, [songPat]);
-  // setInterval(() => console.log(meter.getValue()), 1000);
+  const [pattern, updatePattern] = useState(seqPattern);
 
   useEffect(() => {
     const loop = new Tone.Sequence(
       (time, col) => {
-        // Update active column for animation
         setColumn(col);
 
-        // Loop current pattern
         pattern.map((row, noteIndex) => {
-          // If active
           if (row[col]) {
-            // Play based on which row
             samples.triggerAttackRelease(notes[noteIndex], "16n", time);
           }
         });
@@ -76,17 +62,6 @@ export default function Sequencerinternet(props) {
     ).start(0);
     return () => loop.dispose();
   }, [pattern]);
-
-  // Toggle playing / stopped
-  const toggle = useCallback(() => {
-    Tone.start();
-    Tone.Transport.toggle();
-    setPlayState(Tone.Transport.state);
-  }, []);
-
-  useEffect(() => {
-    dispatch(Transportupdater(Tone.Transport.state));
-  }, [Tone.Transport.state]);
 
   // Update pattern by making a copy and inverting the value
   function setPattern({ x, y, value }) {
@@ -114,18 +89,8 @@ export default function Sequencerinternet(props) {
 
   return (
     <div className="pattern-component-style">
-      {/* <CanvasInitmeter /> */}
-
       <h2>Pattern Maker</h2>
-      <p>{(activeColumn + 1) / 2 + 0.5} </p>
-
-      <button
-        onClick={() => {
-          toggle();
-        }}
-      >
-        Play Stop
-      </button>
+      {/* <p>{(activeColumn + 1) / 2 + 0.5} </p> */}
 
       <div className="pattern-seqrows">
         {pattern.map((row, y) => (
@@ -133,7 +98,7 @@ export default function Sequencerinternet(props) {
             {row.map((value, x) => (
               <button
                 onClick={() => {
-                  dispatch(PatternUpdater(pattern));
+                  // dispatch(PatternUpdater(pattern));
                   setPattern({ x, y, value }); //
                 }}
               >
@@ -151,16 +116,6 @@ export default function Sequencerinternet(props) {
           </tr>
         ))}
       </div>
-
-      {/* <img
-        style={{
-          position: "absolute",
-          bottom: "40%",
-          right: "40%",
-        }}
-        src={speaker}
-        alt="speaker"
-      /> */}
     </div>
   );
 }

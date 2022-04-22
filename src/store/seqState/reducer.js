@@ -1,5 +1,3 @@
-import { SavedPatterns } from "./selectors";
-
 const initialState = {
   seqPattern: [
     [0, 0, 0, 0, 0, 0, 0, 0],
@@ -35,7 +33,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "PATTERNUPDATER": {
-      // console.log("PATTERNUPDATER", action.payload);
+      console.log("PATTERNUPDATER", action.payload);
       return {
         ...state,
         seqPattern: action.payload,
@@ -44,7 +42,10 @@ export default function reducer(state = initialState, action) {
 
     case "PatternSaver":
       console.log("PatternSaver", action.payload);
-
+      console.log("the return:", {
+        ...state,
+        SavedPatterns: [...state.SavedPatterns, action.payload],
+      });
       return {
         ...state,
         SavedPatterns: [...state.SavedPatterns, action.payload],

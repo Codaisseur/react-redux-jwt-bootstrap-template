@@ -22,7 +22,7 @@ export default function SelPatternSelector() {
     // console.log("ik ben nog undfeind");
   } else {
     // console.log("filtered", filtered.pattern[0]);
-    console.log("selectSeqPatternnn", selectSeqPatternnn);
+    // console.log("selectSeqPatternnn", selectSeqPatternnn);
     // dispatch(PatternUpdaterselected(selectSeqPatternnn));
     // dispatch(Extrapatternsavor(filtered.pattern));
   }
