@@ -1,7 +1,7 @@
 const initialState = {
   seqPattern: [
-    [1, 0, 1, 0, 1, 0, 1, 0],
-    [0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 1, 1, 1, 1, 0, 1, 0],
+    [1, 1, 1, 1, 1, 1, 0, 1],
   ],
   seqPatternMeta: { name: "name", color: "color" },
 
@@ -30,6 +30,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "PATTERNUPDATER": {
+      console.log("PATTERNUPDATER", action.payload);
       return {
         ...state,
         seqPattern: action.payload,
@@ -44,6 +45,7 @@ export default function reducer(state = initialState, action) {
     }
 
     case "PatternSaver":
+      console.log("PatternSaver", action.payload);
       return {
         ...state,
         SavedPatterns: [...state.SavedPatterns, action.payload],

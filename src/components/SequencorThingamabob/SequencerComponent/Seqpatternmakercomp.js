@@ -7,11 +7,14 @@ import {
   selectSeqPatternMeta,
   selectSeqSound,
   SavedPatterns,
-} from "../../store/seqState/selectors";
+} from "../../../store/seqState/selectors";
 
-import { PatternUpdater, Transportupdater } from "../../store/seqState/actions";
+import {
+  PatternUpdater,
+  Transportupdater,
+} from "../../../store/seqState/actions";
 
-import speaker from "../../data/speaker.png";
+import speaker from "../../../data/speaker.png";
 
 let notes = ["A1", "B1"];
 let initialPattern = [
@@ -38,12 +41,9 @@ export default function Sequencerinternet(props) {
   const [playState, setPlayState] = useState(Tone.Transport.state);
   const [activeColumn, setColumn] = useState(0);
 
-  const [rmsvalue, setRMSvalue] = useState(0);
-
   const seqPattern = useSelector(selectSeqPattern);
   const seqPatternMeta = useSelector(selectSeqPatternMeta);
   const soundselected = useSelector(selectSeqSound);
-  const songPat = useSelector(SavedPatterns);
 
   // console.log("songPat", songPat);
 
@@ -52,10 +52,6 @@ export default function Sequencerinternet(props) {
   // useEffect(() => {
   //   console.log("songPat:", songPat);
   // }, [songPat]);
-
-  const meter = new Tone.Meter();
-  samples.connect(meter);
-
   // setInterval(() => console.log(meter.getValue()), 1000);
 
   useEffect(() => {

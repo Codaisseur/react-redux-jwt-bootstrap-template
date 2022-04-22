@@ -11,7 +11,7 @@ import { Transportstate } from "../../store/seqState/selectors";
 import SelSoundComp from "../../components/SequencorThingamabob/SelSoundComp/SelSoundComp";
 import SelPatternSelector from "../../components/SequencorThingamabob/SelPatternSelector/SelPatternSelector";
 import SeqSaveComp from "../../components/SequencorThingamabob/SeqSaveComp/SeqSaveComp";
-import SeqPatternmaker from "../TonejsPage/Seqpatternmakercomp";
+import SeqPatternmaker from "../../components/SequencorThingamabob/SequencerComponent/Seqpatternmakercomp";
 
 //SPEAKERS
 import speaker from "../../data/speaker.png";
@@ -37,6 +37,8 @@ export default function HomePage() {
         <SelPatternSelector />
       </div>
 
+
+
       <img
         style={{ position: "absolute", bottom: "-2%", left: "-2%" }}
         src={speakerlinks}
@@ -57,7 +59,7 @@ export default function HomePage() {
           style={
             TpState === "started"
               ? { animation: "spin 4s linear infinite" }
-              : console.log("hoi")
+              : { animation: "stop" }
           }
           className="draaiding1"
         >
@@ -68,7 +70,7 @@ export default function HomePage() {
           style={
             TpState === "started"
               ? { animation: "spin 4s linear infinite" }
-              : console.log("hoi")
+              : { animation: "stop" }
           }
           className="draaiding2"
         >

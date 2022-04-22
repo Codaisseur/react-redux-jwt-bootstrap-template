@@ -15,15 +15,15 @@ export default function SelPatternSelector() {
   const seqsong = useSelector(SavedPatterns);
   const selectSeqPatternnn = useSelector(selectSeqPattern);
 
-  const filtered = seqsong.find((song) => song.name === seqselected);
-  if (filtered === undefined) {
-    // console.log("ik ben nog undfeind");
-  } else {
-    // console.log("filtered", filtered.pattern[0]);
-    console.log("selectSeqPatternnn", selectSeqPatternnn);
-    dispatch(PatternUpdaterselected(selectSeqPatternnn));
-    // dispatch(Extrapatternsavor(filtered.pattern));
-  }
+  // const filtered = seqsong.find((song) => song.name === seqselected);
+  // if (filtered === undefined) {
+  //   // console.log("ik ben nog undfeind");
+  // } else {
+  //   // console.log("filtered", filtered.pattern[0]);
+  //   console.log("selectSeqPatternnn", selectSeqPatternnn);
+  //   dispatch(PatternUpdaterselected(selectSeqPatternnn));
+  //   // dispatch(Extrapatternsavor(filtered.pattern));
+  // }
 
   return (
     <div className="seq-selector-style">
