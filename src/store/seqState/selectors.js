@@ -5,3 +5,6 @@ export const selectSeqSound = (state) => state.seqState.seqSoundSelected;
 export const SavedPatterns = (state) => state.seqState.SavedPatterns;
 
 export const Transportstate = (state) => state.seqState.Transportstate;
+
+export const seqSettingsVol = (state) => state.seqState.seqSettingsvol;
+export const seqSettingsDel = (state) => state.seqState.seqSettingsdel;

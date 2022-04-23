@@ -23,6 +23,7 @@ import TBREELlinks from "./data/TBREELlinks.png";
 import TBREELrechts from "./data/TBREELrechts.png";
 
 import CanvasInit from "./pages/CanvasP5/CanvasInit";
+import Canvastry from "./pages/CanvasP5/Canvasp5try";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
 
-        <Route exact path="/canvasinit" element={<CanvasInit />} />
+        <Route exact path="/canvastry" element={<Canvastry />} />
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
@@ -52,17 +53,17 @@ function App() {
         style={{ position: "absolute", bottom: "-2%", left: "-2%" }}
         src={speakerlinks}
         alt="speakerlinks"
-        height="455"
+        height="220"
       />
       <img
         style={{ position: "absolute", bottom: "-4%", right: "-1%" }}
         src={speaker}
         alt="speaker"
-        height="460"
+        height="220"
       />
 
       <div className="tbreel-style">
-        <img style={{}} src={TBREEL} alt="TBREEL" height="345" />
+        <img style={{}} src={TBREEL} alt="TBREEL" height="220" />
 
         <div
           style={

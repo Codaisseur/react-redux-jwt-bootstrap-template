@@ -28,7 +28,7 @@ export default function CanvasInit(props) {
     p5.background(0);
     p5.fill(230);
     cnv.style("z-index", -1);
-    analyser = new Tone.Analyser("waveform", 128);
+    analyser = new Tone.Analyser("waveform", 512);
     Tone.Destination.connect(analyser);
   };
   function windowResized(p5, canvasParentRef) {
@@ -37,7 +37,7 @@ export default function CanvasInit(props) {
 
   const draw = (p5) => {
     const dim = Math.min(p5.width, p5.height);
-    p5.background(0);
+    p5.background(0, 0, 0, 10);
     const diameter = dim * 0.2;
     p5.fill("tomato");
 
@@ -53,12 +53,7 @@ export default function CanvasInit(props) {
       true
     );
 
-    p5.circle(p5.width / 2, p5.height, levelDiameter);
-
-    p5.text("HOI HOI HOI HOI HOI", 20, 400 - levelDiameter);
-
-    // p5.background(0, 0, 0, 10);
-    p5.strokeWeight(dim * 0.0025);
+    p5.strokeWeight(dim * 0.00125);
     p5.stroke(255);
     p5.noFill();
 
@@ -67,19 +62,22 @@ export default function CanvasInit(props) {
 
       p5.beginShape();
       for (let i = 0; i < values.length; i++) {
-        const amplitude = values[i];
+        const amplitude = values[i] / 2;
         const x = p5.map(i, 0, values.length - 1, 0, p5.width);
         const y = p5.height + amplitude * p5.height;
-        // Place vertex
+
         p5.vertex(x, y / 2);
       }
       p5.endShape();
     }
+
+    p5.background(0, 0, 0, 10);
+    p5.redraw();
   };
 
   return (
     <div>
-      <Sketch setup={setup} windowResized={windowResized} draw={draw} />{" "}
+      <Sketch setup={setup} windowResized={windowResized} draw={draw} />
     </div>
   );
 }

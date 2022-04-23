@@ -1,8 +1,9 @@
 .sequencerblock-style {
-  border: 1px solid black;
+  border: 1px solid rgb(77, 45, 158);
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: flex-end;
 }
 
 .volume-slider {
@@ -35,7 +36,7 @@
 }
 
 .CanvasInit {
-  border: 120px solid rgb(220, 158, 158);
+  border: 2 solid rgb(220, 158, 158);
 }
 /* .sequencer-style {
   display: flex;
@@ -44,7 +45,7 @@
 } */
 
 .pattern-component-style {
-  border: 10px solid rgb(28, 135, 101);
+  border: 2 solid rgb(28, 135, 101);
 }
 
 .pattern-component-style button {
@@ -59,7 +60,7 @@ pattern-seqrows {
 }
 
 .sound-selector-style {
-  border: 10px solid rgb(143, 80, 142);
+  border: 2px solid rgb(143, 80, 142);
   background-color: rgb(122, 146, 166, 0.4);
 }
 

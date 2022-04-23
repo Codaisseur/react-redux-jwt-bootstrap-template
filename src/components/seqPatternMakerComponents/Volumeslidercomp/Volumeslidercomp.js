@@ -1,33 +1,52 @@
-import { useState, useCallback, useEffect } from "react";
-import * as Tone from "tone";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
-let volumeschakelaar = -20;
-const vol = new Tone.Volume(volumeschakelaar).toDestination();
+import { useDispatch } from "react-redux";
+
+import {
+  seqSettingsVolaction,
+  seqSettingsDelayaction,
+} from "../../../store/seqState/actions";
 
 export default function Volumeslidercomp() {
+  const dispatch = useDispatch();
   const [volume, setVolume] = useState(0);
+  const [delaydrywet, setDelaydrywet] = useState(0);
 
-  //   console.log(volume);
-
-  //   let vol = new
-
-  vol.volume.value = volume;
+  dispatch(seqSettingsVolaction(volume));
+  dispatch(seqSettingsDelayaction(delaydrywet));
 
   return (
-    <div className="volume-slider">
-      <div class="slidecontainer">
-        <input
-          type="range"
-          min="-30"
-          max="0"
-          value={volume}
-          onChange={(e) => {
-            setVolume(e.target.value);
-          }}
-          step="1"
-        />
-        volume : {volume}
+    <div>
+      <div className="volume-slider">
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="-40"
+            max="0"
+            value={volume}
+            onChange={(e) => {
+              setVolume(e.target.value);
+            }}
+            step="1"
+          />
+          volume : {volume}
+        </div>
+      </div>
+
+      <div className="volume-slider">
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="0.5"
+            value={delaydrywet}
+            onChange={(e) => {
+              setDelaydrywet(e.target.value);
+            }}
+            step="0.05"
+          />
+          delaydrywet : {delaydrywet}
+        </div>
       </div>
     </div>
   );

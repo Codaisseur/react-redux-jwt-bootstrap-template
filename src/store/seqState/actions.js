@@ -32,3 +32,13 @@ export const Transportupdater = (Payload) => ({
   type: "Transportupdater",
   payload: Payload,
 });
+
+export const seqSettingsVolaction = (Payload) => ({
+  type: "seqSettingsvol",
+  payload: Payload,
+});
+
+export const seqSettingsDelayaction = (Payload) => ({
+  type: "seqSettingsdel",
+  payload: Payload,
+});

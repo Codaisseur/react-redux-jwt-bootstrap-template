@@ -1,34 +1,45 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import Sketch from "react-p5";
-import "p5/lib/addons/p5.sound";
 
-export default function Canvas5try(p5, canvasParentRef) {
+import * as Tone from "tone";
+
+import speakerlinks from "../../data/speakerlinks.png";
+
+export default function Canvastry(props) {
   const setup = (p5, canvasParentRef) => {
-    const cnv = p5.createCanvas(400, 400).parent(canvasParentRef);
+    const cnv = p5
+      .createCanvas(p5.windowWidth, p5.windowHeight)
+      .parent(canvasParentRef);
+
+    cnv.position(0, 0);
+
+    p5.background(0);
+    p5.fill(230);
+    cnv.style("z-index", -1);
   };
+  function windowResized(p5, canvasParentRef) {
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+  }
 
   const draw = (p5) => {
-    p5.background(130);
-    p5.fill(10, 202, 153);
-    p5.text("hoi", 20, 30);
-  };
+    const dim = Math.min(p5.width, p5.height);
+    p5.background(0);
 
-  // function draw() {
-  //   if(mouseIsPressed){
-  //     player.start();
-  //   } else {
-  //     player.stop();
-  //   }
-  // }
+    p5.noFill();
+    p5.stroke("purple");
+
+    p5.text("WELKOM OP DE TRY", 20, 400);
+
+    // p5.background(0, 0, 0, 10);
+    p5.strokeWeight(dim * 0.0025);
+    p5.stroke(255);
+    p5.noFill();
+  };
 
   return (
     <div>
-      <div className="sequencerblock-style">
-        <Sketch setup={setup} draw={draw} />
-      </div>
+      <Sketch setup={setup} windowResized={windowResized} draw={draw} />
     </div>
   );
 }
-
-// "http://127.0.0.1:5500/src//data/beatje83.wav"
-// "http://127.0.0.1:5500/src/data/speaker.tiff"

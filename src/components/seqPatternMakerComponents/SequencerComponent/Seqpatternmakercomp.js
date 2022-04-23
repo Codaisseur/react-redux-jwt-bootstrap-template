@@ -6,6 +6,8 @@ import {
   selectSeqPattern,
   selectSeqPatternMeta,
   selectSeqSound,
+  seqSettingsVol,
+  seqSettingsDel,
 } from "../../../store/seqState/selectors";
 
 import {
@@ -19,9 +21,8 @@ let initialPattern = [
   [1, 0, 0, 1, 1, 0, 0, 0],
 ];
 
-let volumeschakelaar = -20;
-const vol = new Tone.Volume(volumeschakelaar).toDestination();
-const feedbackDelay = new Tone.FeedbackDelay("16n", 0.05).connect(vol);
+const vol = new Tone.Volume(0).toDestination();
+const feedbackDelay = new Tone.FeedbackDelay("16n", 0).connect(vol);
 
 const samples = new Tone.Sampler({
   urls: {
@@ -38,17 +39,15 @@ const samples = new Tone.Sampler({
 }).connect(feedbackDelay);
 
 export default function Sequencerinternet(props) {
-  const [volume, setVolume] = useState(0);
-  const [filter, setFilter] = useState();
   const dispatch = useDispatch();
-  const [playState, setPlayState] = useState(Tone.Transport.state);
+
   const [activeColumn, setColumn] = useState(0);
 
   const seqPattern = useSelector(selectSeqPattern);
   const seqPatternMeta = useSelector(selectSeqPatternMeta);
   const soundselected = useSelector(selectSeqSound);
-
-  // console.log("songPat", songPat);
+  const seqVol = useSelector(seqSettingsVol);
+  const seqDelwet = useSelector(seqSettingsDel);
 
   const [pattern, updatePattern] = useState(seqPattern);
 
@@ -69,7 +68,7 @@ export default function Sequencerinternet(props) {
     return () => loop.dispose();
   }, [pattern]);
 
-  // Update pattern by making a copy and inverting the value
+  // Update pattern by making a copy and inverting the value :S
   function setPattern({ x, y, value }) {
     const patternCopy = [...pattern];
     patternCopy[y][x] = +!value;
@@ -93,7 +92,16 @@ export default function Sequencerinternet(props) {
       notes = ["A2", "G1"];
   }
 
-  vol.volume.value = volume;
+  useEffect(() => {
+    vol.volume.value = seqVol;
+  }, [seqVol]);
+
+  useEffect(() => {
+    console.log(seqDelwet);
+    feedbackDelay.wet.value = seqDelwet;
+  }, [seqDelwet]);
+
+  //   feedbackDelay.wet.value = seqDelwet;
 
   return (
     <div className="pattern-component-style">
@@ -106,7 +114,6 @@ export default function Sequencerinternet(props) {
             {row.map((value, x) => (
               <button
                 onClick={() => {
-                  // dispatch(PatternUpdater(pattern));
                   setPattern({ x, y, value }); //
                 }}
               >
@@ -124,48 +131,6 @@ export default function Sequencerinternet(props) {
           </tr>
         ))}
       </div>
-
-      <div className="volume-slider">
-        <div class="slidecontainer">
-          <input
-            type="range"
-            min="-30"
-            max="0"
-            value={volume}
-            onChange={(e) => {
-              setVolume(e.target.value);
-            }}
-            step="1"
-          />
-          volume : {volume}
-        </div>
-      </div>
-
-      <div className="volume-slider">
-        <div class="slidecontainer">
-          <input
-            type="range"
-            min="0"
-            max="1"
-            value={filter}
-            onChange={(e) => {
-              setFilter(e.target.value);
-            }}
-            step="0.1"
-          />
-          filter : {filter}
-        </div>
-      </div>
     </div>
   );
 }
-
-// style={{
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "center",
-//   width: 25,
-//   height: 25,
-//   background: value ? "#999" : "",
-//   border: active ? "1px solid #999" : "1px solid #eee"
-// }}
