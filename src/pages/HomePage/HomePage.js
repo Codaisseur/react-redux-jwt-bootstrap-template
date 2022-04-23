@@ -10,10 +10,11 @@ import SelSoundComp from "../../components/Patternmaker/SelSoundComp/SelSoundCom
 import SelPatternSelector from "../../components/Patternmaker/SelPatternSelector/SelPatternSelector";
 import SeqSaveComp from "../../components/Patternmaker/SeqSaveComp/SeqSaveComp";
 import SeqPatternmaker from "../../components/Patternmaker/SequencerComponent/Seqpatternmakercomp";
-import StartstopComp from "../../components/Patternmaker/Startstopcomp/Startstopcomp";
+
 import Recordercomponent from "../../components/Patternmaker/recorder/Recordercomponent";
 
 import Volumeslidercomp from "../../components/Patternmaker/Volumeslidercomp/Volumeslidercomp";
+import Delayslidercomp from "../../components/Patternmaker/delayslidercomp/Delayslidercomp";
 
 export default function HomePage() {
   return (
@@ -23,6 +24,7 @@ export default function HomePage() {
       <div className="wholething">
         <div className="sequencerblock-style">
           <Volumeslidercomp />
+          <Delayslidercomp />
           <SelSoundComp />
           <Recordercomponent />
 

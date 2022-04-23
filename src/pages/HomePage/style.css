@@ -14,16 +14,19 @@ button {
 .volume-slider {
   color: orange;
   background-color: rgb(131, 135, 28);
+  text-align: center;
 }
 
 .slidecontainer {
-  color: orange;
+  border: 1px solid grey;
+  color: rgb(0, 255, 247);
+  text-align: center;
 }
 
 .slidecontainer input[type="range"] {
   -webkit-appearance: slider-vertical;
-  border: 1px solid black;
-  display: flex;
+  height: 150px;
+  width: 50px;
 }
 
 .Sound-style {
@@ -57,7 +60,7 @@ button {
 }
 
 .pattern-seqrows button {
-  border: 1px solid black;
+  border: 1px solid rgb(123, 89, 89);
 
   height: 100px;
   width: 62.5px;

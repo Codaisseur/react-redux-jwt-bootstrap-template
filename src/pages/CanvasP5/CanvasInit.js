@@ -42,11 +42,10 @@ export default function CanvasInit(props) {
 
   const draw = (p5) => {
     const dim = Math.min(p5.width, p5.height);
-    p5.background(0, 0, 0, 10);
+
     const diameter = dim * 0.2;
     p5.fill(seqPatternMeta.color);
 
-    p5.noFill();
     p5.stroke(seqPatternMeta.color);
 
     levelDiameter = p5.map(
@@ -58,7 +57,7 @@ export default function CanvasInit(props) {
       true
     );
 
-    p5.strokeWeight(dim * 0.00125);
+    p5.strokeWeight(dim * 0.0025);
     p5.stroke(seqPatternMeta.color);
     p5.noFill();
 
@@ -76,7 +75,7 @@ export default function CanvasInit(props) {
       p5.endShape();
     }
 
-    p5.background(0, 0, 0, 10);
+    p5.background(0, 0, 0, 12); // misschien aan parameter hangen?
     p5.redraw();
   };
 
