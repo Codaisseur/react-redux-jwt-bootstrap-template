@@ -1,10 +1,14 @@
 import React from "react";
+
+import { useSelector } from "react-redux";
 import ReactDOM from "react-dom";
 import Sketch from "react-p5";
 
 import * as Tone from "tone";
 
 import speakerlinks from "../../data/speakerlinks.png";
+
+import { selectSeqPatternMeta } from "../../store/seqState/selectors";
 
 let meter;
 let levelDiameter;
@@ -15,6 +19,7 @@ let mic, recorder, soundFile;
 let state = 0;
 
 export default function CanvasInit(props) {
+  const seqPatternMeta = useSelector(selectSeqPatternMeta);
   meter = new Tone.Meter();
   Tone.Destination.connect(meter);
 
@@ -39,10 +44,10 @@ export default function CanvasInit(props) {
     const dim = Math.min(p5.width, p5.height);
     p5.background(0, 0, 0, 10);
     const diameter = dim * 0.2;
-    p5.fill("tomato");
+    p5.fill(seqPatternMeta.color);
 
     p5.noFill();
-    p5.stroke("purple");
+    p5.stroke(seqPatternMeta.color);
 
     levelDiameter = p5.map(
       meter.getLevel(),
@@ -54,7 +59,7 @@ export default function CanvasInit(props) {
     );
 
     p5.strokeWeight(dim * 0.00125);
-    p5.stroke(255);
+    p5.stroke(seqPatternMeta.color);
     p5.noFill();
 
     if (playing) {

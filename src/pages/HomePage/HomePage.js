@@ -5,38 +5,33 @@ import "./style.css";
 
 import CanvasInit from "../CanvasP5/CanvasInit";
 
-import { Transportstate } from "../../store/seqState/selectors";
-
 //COMPONENTS
-import SelSoundComp from "../../components/seqPatternMakerComponents/SelSoundComp/SelSoundComp";
-import SelPatternSelector from "../../components/seqPatternMakerComponents/SelPatternSelector/SelPatternSelector";
-import SeqSaveComp from "../../components/seqPatternMakerComponents/SeqSaveComp/SeqSaveComp";
-import SeqPatternmaker from "../../components/seqPatternMakerComponents/SequencerComponent/Seqpatternmakercomp";
-import StartstopComp from "../../components/seqPatternMakerComponents/Startstopcomp/Startstopcomp";
-import Recordercomponent from "../../components/seqPatternMakerComponents/recorder/Recordercomponent";
+import SelSoundComp from "../../components/Patternmaker/SelSoundComp/SelSoundComp";
+import SelPatternSelector from "../../components/Patternmaker/SelPatternSelector/SelPatternSelector";
+import SeqSaveComp from "../../components/Patternmaker/SeqSaveComp/SeqSaveComp";
+import SeqPatternmaker from "../../components/Patternmaker/SequencerComponent/Seqpatternmakercomp";
+import StartstopComp from "../../components/Patternmaker/Startstopcomp/Startstopcomp";
+import Recordercomponent from "../../components/Patternmaker/recorder/Recordercomponent";
 
-import Volumeslidercomp from "../../components/seqPatternMakerComponents/Volumeslidercomp/Volumeslidercomp";
+import Volumeslidercomp from "../../components/Patternmaker/Volumeslidercomp/Volumeslidercomp";
 
 export default function HomePage() {
-  const TpState = useSelector(Transportstate);
-
-  console.log("TpState:", TpState);
-
   return (
-    <div className="wholething">
-      <div className="sequencerblock-style">
-        <Volumeslidercomp />
-        <SelSoundComp />
-        <Recordercomponent />
-        <div>
-          <SeqPatternmaker />
-          <StartstopComp />
-        </div>
-        <SeqSaveComp />
-        <SelPatternSelector />
-      </div>
+    <div>
+      <SeqPatternmaker />
 
-      <CanvasInit />
+      <div className="wholething">
+        <div className="sequencerblock-style">
+          <Volumeslidercomp />
+          <SelSoundComp />
+          <Recordercomponent />
+
+          <SeqSaveComp />
+          <SelPatternSelector />
+        </div>
+
+        <CanvasInit />
+      </div>
     </div>
   );
 }

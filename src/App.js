@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback, useState } from "react";
+import * as Tone from "tone";
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
@@ -12,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { Transportstate } from "./store/seqState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-
+import { Transportupdater } from "./store/seqState/actions";
 import HomePage from "./pages/HomePage/HomePage";
 
 //SPEAKERS
@@ -26,6 +27,7 @@ import CanvasInit from "./pages/CanvasP5/CanvasInit";
 import Canvastry from "./pages/CanvasP5/Canvasp5try";
 
 function App() {
+  const [playState, setPlayState] = useState(Tone.Transport.state);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
   const TpState = useSelector(Transportstate);
@@ -33,6 +35,17 @@ function App() {
   useEffect(() => {
     dispatch(getUserWithStoredToken());
   }, [dispatch]);
+
+  // Toggle playing / stopped
+  const toggle = useCallback(() => {
+    Tone.start();
+    Tone.Transport.toggle();
+    setPlayState(Tone.Transport.state);
+  }, []);
+
+  useEffect(() => {
+    dispatch(Transportupdater(Tone.Transport.state));
+  }, [Tone.Transport.state]);
 
   return (
     <div className="App">
@@ -63,29 +76,37 @@ function App() {
       />
 
       <div className="tbreel-style">
-        <img style={{}} src={TBREEL} alt="TBREEL" height="220" />
-
-        <div
-          style={
-            TpState === "started"
-              ? { animation: "spin 4s linear infinite" }
-              : { animationplaystate: "paused" }
-          }
-          className="draaiding1"
+        <button
+          style={{ background: "rgba(201, 76, 76, 0.0", border: "none" }}
+          type="button"
+          onClick={() => {
+            toggle();
+          }}
         >
-          <img src={TBREELrechts} alt="TBREELrechts" />
-        </div>
+          <img style={{}} src={TBREEL} alt="TBREEL" height="220" />
 
-        <div
-          style={
-            TpState === "started"
-              ? { animation: "spin 4s linear infinite" }
-              : { animation: "paused" }
-          }
-          className="draaiding2"
-        >
-          <img src={TBREELlinks} alt="TBREELlinks" />
-        </div>
+          <div
+            style={
+              TpState === "started"
+                ? { animation: "spin 4s linear infinite" }
+                : { animationplaystate: "paused" }
+            }
+            className="draaiding1"
+          >
+            <img src={TBREELrechts} alt="TBREELrechts" />
+          </div>
+
+          <div
+            style={
+              TpState === "started"
+                ? { animation: "spin 4s linear infinite" }
+                : { animation: "paused" }
+            }
+            className="draaiding2"
+          >
+            <img src={TBREELlinks} alt="TBREELlinks" />
+          </div>
+        </button>
       </div>
     </div>
   );

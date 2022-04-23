@@ -1,67 +1,83 @@
+*,
+button {
+  color: rgb(119, 0, 255);
+}
+
 .sequencerblock-style {
-  border: 1px solid rgb(77, 45, 158);
+  /* border: 1px solid rgb(202, 218, 33); */
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .volume-slider {
   color: orange;
-  background-color: black;
+  background-color: rgb(131, 135, 28);
 }
-.seq-selector-style {
+
+.slidecontainer {
+  color: orange;
+}
+
+.slidecontainer input[type="range"] {
+  -webkit-appearance: slider-vertical;
   border: 1px solid black;
-  background-color: rgb(122, 146, 166, 0.4);
+  display: flex;
+}
+
+.Sound-style {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(131, 135, 28);
+}
+
+.Recorder-style {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(131, 135, 28);
+}
+
+.Pattern-style {
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pattern-seqrows {
+  height: 208px;
+  width: 508px;
+  border: 4px solid black;
+}
+
+.pattern-seqrows button {
+  border: 1px solid black;
+
+  height: 100px;
+  width: 62.5px;
 }
 
 .startstop-style {
   display: flex;
   flex-direction: column;
-  background-color: rgb(122, 146, 166, 0.4);
 }
 
-.seqsavecomp {
+.Save-style {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  background-color: rgb(122, 146, 166, 0.4);
+  background-color: rgb(131, 135, 28);
 }
 
-.sound-selector-style {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(122, 146, 166, 0.4);
-}
-
-.CanvasInit {
-  border: 2 solid rgb(220, 158, 158);
-}
-/* .sequencer-style {
-  display: flex;
-  flex-direction: column;
-
-} */
-
-.pattern-component-style {
-  border: 2 solid rgb(28, 135, 101);
-}
-
-.pattern-component-style button {
-  border: 1px solid rgb(131, 135, 28);
-  background-color: rgba(133, 68, 147, 0.909);
-  height: 100px;
-  width: 60px;
-}
-
-pattern-seqrows {
-  background-color: rgba(142, 147, 68, 0.909);
-}
-
-.sound-selector-style {
-  border: 2px solid rgb(143, 80, 142);
-  background-color: rgb(122, 146, 166, 0.4);
+.Selector-style {
+  /* border: 1px solid black; */
+  background-color: rgb(131, 135, 28);
 }
 
 .tbreel-style {
