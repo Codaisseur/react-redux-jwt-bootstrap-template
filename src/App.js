@@ -43,11 +43,18 @@ function App() {
     setPlayState(Tone.Transport.state);
   }, []);
 
-  const toggleHide = () => {};
-
   useEffect(() => {
     dispatch(Transportupdater(Tone.Transport.state));
   }, [Tone.Transport.state]);
+
+  function toggleHide() {
+    var x = document.getElementById("delayDIV");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
 
   return (
     <div className="App">

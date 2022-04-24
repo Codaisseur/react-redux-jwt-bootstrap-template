@@ -17,9 +17,9 @@ export default function SelSoundComp() {
       <h3>Sound Selector</h3>
       <select onChange={(e) => setSoundStyle(e.target.value)}>
         <option value="Loud">Loud</option>
-        <option value="Soft">Soft</option>
-        <option value="Metal">Metal</option>
-        <option value="Wood">Wood</option>
+        <option value="Electronic">Electronic</option>
+        <option value="Percussion">Percussion</option>
+        <option value="Neo-Soul">Neo-Soul</option>
       </select>
       <h4>Stijl : {soundSelected} </h4>
     </div>

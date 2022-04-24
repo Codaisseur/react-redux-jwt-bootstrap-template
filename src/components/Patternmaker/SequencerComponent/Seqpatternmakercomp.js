@@ -7,7 +7,9 @@ import {
   selectSeqSound,
   seqSettingsVol,
   seqSettingsDel,
+  seqSettingsFilter,
   seqSettingsDelfeedback,
+  seqSettings,
 } from "../../../store/seqState/selectors";
 
 import { PatternUpdater } from "../../../store/seqState/actions";
@@ -20,12 +22,8 @@ let notes = ["A1", "B1"];
 // ];
 
 const vol = new Tone.Volume(0).toDestination();
-
-const chorus = new Tone.Chorus();
-const filter = new Tone.Filter();
-// const fbfilter = new Tone.FeedbackCombFilter("8t", 0.4).connect(chorus);
-// const lpcfilter = new Tone.LowpassCombFilter("12n ", 0.2, 1500).connect(vol);
-const feedbackDelay = new Tone.FeedbackDelay("12n", 0).connect(vol);
+const lpfilter = new Tone.Filter().connect(vol);
+const feedbackDelay = new Tone.FeedbackDelay("12n", 0).connect(lpfilter);
 
 const samples = new Tone.Sampler({
   urls: {
@@ -48,8 +46,12 @@ export default function Sequencerinternet(props) {
 
   const seqPattern = useSelector(selectSeqPattern);
 
-  const soundselected = useSelector(selectSeqSound);
   const seqVol = useSelector(seqSettingsVol);
+
+  const soundselected = useSelector(selectSeqSound);
+
+  const seqSetting = useSelector(seqSettings);
+
   const seqDelwet = useSelector(seqSettingsDel);
 
   const seqDelfeedback = useSelector(seqSettingsDelfeedback);
@@ -85,17 +87,17 @@ export default function Sequencerinternet(props) {
     updatePattern(patternCopy);
   }
 
-  switch (soundselected) {
+  switch (seqSetting.seqSoundSelected) {
     case "Loud":
       notes = ["B1", "A1"];
       break;
-    case "Soft":
+    case "Electronic":
       notes = ["D1", "C1"];
       break;
-    case "Metal":
+    case "Percussion":
       notes = ["F1", "E1"];
       break;
-    case "Wood":
+    case "Neo-Soul":
       notes = ["A2", "G1"];
       break;
     default:
@@ -104,13 +106,13 @@ export default function Sequencerinternet(props) {
 
   // EFFECTS
   useEffect(() => {
-    vol.volume.value = seqVol;
-  }, [seqVol]);
+    vol.volume.value = seqSetting.seqSettingsvol;
+  }, [seqSetting.seqSettingsvol]);
 
   useEffect(() => {
-    feedbackDelay.wet.value = seqDelwet;
-    feedbackDelay.feedback.value = seqDelwet;
-  }, [seqDelwet]);
+    feedbackDelay.wet.value = seqSetting.seqSettingsdel;
+    feedbackDelay.feedback.value = seqSetting.seqSettingsdel;
+  }, [seqSetting.seqSettingsdel]);
 
   return (
     <div className="Pattern-style">

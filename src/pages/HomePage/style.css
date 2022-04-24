@@ -23,7 +23,6 @@ button {
 }
 
 .slidecontainer {
-  color: rgb(0, 255, 247);
   text-align: center;
 }
 
@@ -34,16 +33,20 @@ button {
 }
 
 .delay-slider {
-  border: 2px dotted orange;
+  color: orange;
+  background-color: rgba(0, 0, 0, 0);
   text-align: center;
-
-  /* visibility: hidden; */
+  display: none;
 }
 
 .Sound-style {
   border: 1px solid black;
 
   background-color: rgb(131, 135, 28);
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .Recorder-style {
