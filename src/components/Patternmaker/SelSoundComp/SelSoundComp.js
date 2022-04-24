@@ -23,7 +23,6 @@ export default function SelSoundComp() {
         <option value="Percussion">Percussion</option>
         <option value="Neo-Soul">Neo-Soul</option>
       </select>
-      <h4>Stijl : {seqSetting.seqSoundSelected} </h4>
     </div>
   );
 }

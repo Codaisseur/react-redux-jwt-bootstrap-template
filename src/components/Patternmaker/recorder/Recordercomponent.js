@@ -62,6 +62,9 @@ export default function Recordercomponent() {
 
   return (
     <div className="Recorder-style">
+      <h3>Recorder</h3>
+
+      
       <div>{TpState === "started" ? <p>[ PLAY ]</p> : <p>[ STOP ]</p>}</div>
       {/* <button
         onClick={() => {

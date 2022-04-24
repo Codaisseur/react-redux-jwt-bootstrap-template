@@ -1,6 +1,10 @@
-*,
+/* *,
 button {
   color: rgb(210, 46, 46);
+} */
+
+h3 {
+  color: white;
 }
 
 .sequencerblock-style {
@@ -101,11 +105,11 @@ button {
 }
 
 .Selector-style {
-  border: 1px dotted rgb(255, 255, 255);
 }
 
 .Selector-style button {
   width: 100%;
+  border-radius: 5px;
   display: block;
   height: 40px;
   text-align: center;

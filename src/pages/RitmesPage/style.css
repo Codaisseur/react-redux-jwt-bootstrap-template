@@ -4,11 +4,12 @@
 .ritme-card {
   display: flex;
   flex-direction: column;
-  border: 1px dotted rgb(216, 227, 158);
+  margin-top: 20px;
 }
 
 .ritme-card table {
   display: flex;
+  border-radius: 10px;
 }
 
 .ritme-card tr {
@@ -23,6 +24,8 @@
 
 #patname {
   color: black;
+
+  border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 17px;
   position: absolute;

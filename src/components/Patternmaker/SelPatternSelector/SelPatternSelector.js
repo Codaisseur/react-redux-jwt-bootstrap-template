@@ -25,7 +25,7 @@ export default function SelPatternSelector() {
       {savedsongs.map((pattern) => (
         <button
           style={{
-            border: `8px solid ${pattern.color}`,
+            border: `1px solid ${pattern.color}`,
             color: `${pattern.color}`,
           }}
           onClick={() => {
