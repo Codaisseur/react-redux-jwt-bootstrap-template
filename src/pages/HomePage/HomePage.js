@@ -24,11 +24,15 @@ export default function HomePage() {
       <div className="wholething">
         <div className="sequencerblock-style">
           <Volumeslidercomp />
+
           <Delayslidercomp />
+
           <SelSoundComp />
+
           <Recordercomponent />
 
           <SeqSaveComp />
+
           <SelPatternSelector />
         </div>
 

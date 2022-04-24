@@ -7,7 +7,7 @@ import * as Tone from "tone";
 
 import speakerlinks from "../../data/speakerlinks.png";
 
-import { selectSeqPatternMeta } from "../../store/seqState/selectors";
+import { selectSeqPattern } from "../../store/seqState/selectors";
 
 let meter;
 let levelDiameter;
@@ -18,7 +18,7 @@ let mic, recorder, soundFile;
 let state = 0;
 
 export default function CanvasInit(props) {
-  const seqPatternMeta = useSelector(selectSeqPatternMeta);
+  const seqPattern = useSelector(selectSeqPattern);
   meter = new Tone.Meter();
   Tone.Destination.connect(meter);
 
@@ -43,9 +43,9 @@ export default function CanvasInit(props) {
     const dim = Math.min(p5.width, p5.height);
 
     const diameter = dim * 0.2;
-    p5.fill(seqPatternMeta.color);
+    p5.fill(seqPattern.color);
 
-    p5.stroke(seqPatternMeta.color);
+    p5.stroke(seqPattern.color);
 
     levelDiameter = p5.map(
       meter.getLevel(),
@@ -57,7 +57,7 @@ export default function CanvasInit(props) {
     );
 
     p5.strokeWeight(dim * 0.0025);
-    p5.stroke(seqPatternMeta.color);
+    p5.stroke(seqPattern.color);
     p5.noFill();
 
     if (playing) {

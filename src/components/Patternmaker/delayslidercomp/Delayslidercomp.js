@@ -15,40 +15,23 @@ export default function Delayslidercomp() {
   dispatch(seqSettingsDelayfeedbackaction(delayfeedback));
 
   return (
-    <div className="volume-slider">
-      <div class="slidecontainer">
-        <input
-          type="range"
-          min="0"
-          max="0.5"
-          value={delaydrywet}
-          onChange={(e) => {
-            setDelaydrywet(e.target.value);
-          }}
-          step="0.05"
-        />
-        <input
-          type="range"
-          min="0"
-          max="0.9"
-          value={delayfeedback}
-          onChange={(e) => {
-            setDelayfeedback(e.target.value);
-          }}
-          step="0.05"
-        />
-        <input
-          type="range"
-          min="0"
-          max="0.5"
-          value=""
-          onChange={(e) => {
-            setDelaydrywet(e.target.value);
-          }}
-          step="0.05"
-        />
+    <div className="delay-slider">
+      <div>
+        delay <br></br>
+        {delaydrywet}
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="0.5"
+            value={delaydrywet}
+            onChange={(e) => {
+              setDelaydrywet(e.target.value);
+            }}
+            step="0.05"
+          />
+        </div>
       </div>
-      echo:{delaydrywet}
     </div>
   );
 }

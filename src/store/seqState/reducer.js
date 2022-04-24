@@ -1,21 +1,16 @@
 const initialState = {
-  seqPattern: [
-    [0, 0, 0, 1, 0, 0, 1, 0],
-    [1, 0, 1, 0, 1, 0, 1, 0],
-  ],
-
-  seqPatternMeta: { name: "name", color: "color" },
-
-  seqSoundSelected: "Wood",
-  seqSettingsvol: -32,
-  seqSettingsdel: 1,
-  seqSettingsDelfeedback: 0.7,
-
-  Transportstate: "",
+  seqPattern: {
+    name: "KOEN",
+    color: "orange",
+    pattern: [
+      [1, 0, 0, 0, 0, 0, 0, 1],
+      [1, 0, 0, 0, 0, 0, 0, 1],
+    ],
+  },
 
   SavedPatterns: [
     {
-      name: "gerard",
+      name: "Sjohones",
       color: "red",
       pattern: [
         [1, 0, 0, 1, 1, 1, 1, 1],
@@ -23,14 +18,31 @@ const initialState = {
       ],
     },
     {
-      name: "donkie",
+      name: "Donkie",
       color: "purple",
       pattern: [
         [0, 1, 0, 1, 0, 1, 0, 0],
         [0, 1, 0, 1, 0, 1, 0, 1],
       ],
     },
+    {
+      name: "TURKLE",
+      color: "yellow",
+      pattern: [
+        [0, 0, 0, 1, 1, 1, 0, 1],
+        [0, 0, 0, 1, 1, 1, 0, 1],
+      ],
+    },
   ],
+
+  Settings: {
+    seqSoundSelected: "Wood",
+    seqSettingsvol: -32,
+    seqSettingsdel: 0,
+    seqSettingsDelfeedback: 0.7,
+  },
+
+  Transportstate: "",
 };
 
 export default function reducer(state = initialState, action) {
@@ -38,27 +50,27 @@ export default function reducer(state = initialState, action) {
     case "PATTERNUPDATER": {
       return {
         ...state,
+        seqPattern: {
+          ...state.seqPattern,
+          pattern: action.payload,
+        },
+      };
+    }
+
+    case "PATTERNUPDATESELECTOR": {
+      console.log(action.payload);
+      return {
+        ...state,
         seqPattern: action.payload,
       };
     }
 
-    case "PatternSaver":
-      return {
-        ...state,
-        SavedPatterns: [...state.SavedPatterns, action.payload],
-      };
-
-    case "SeqSoundSetter": {
-      return {
-        ...state,
-        seqSoundSelected: action.payload,
-      };
-    }
+    // SAVE COMPONENT ACTIONS
     case "Patterncolorsetter": {
       return {
         ...state,
-        seqPatternMeta: {
-          ...state.seqPatternMeta,
+        seqPattern: {
+          ...state.seqPattern,
           color: action.payload,
         },
       };
@@ -66,12 +78,18 @@ export default function reducer(state = initialState, action) {
     case "Patternnamesetter": {
       return {
         ...state,
-        seqPatternMeta: {
-          ...state.seqPatternMeta,
+        seqPattern: {
+          ...state.seqPattern,
           name: action.payload,
         },
       };
     }
+    case "PatternSaver":
+      return {
+        ...state,
+        SavedPatterns: [...state.SavedPatterns, action.payload],
+      };
+
     case "Transportupdater": {
       return {
         ...state,
@@ -79,25 +97,44 @@ export default function reducer(state = initialState, action) {
       };
     }
 
+    // SOUND SETTINGS
+    case "seqSettingsSound": {
+      return {
+        ...state,
+        Settings: {
+          ...state.Settings,
+          seqSoundSelected: action.payload,
+        },
+      };
+    }
+
     case "seqSettingsvol": {
       return {
         ...state,
-
-        seqSettingsvol: action.payload,
+        Settings: {
+          ...state.Settings,
+          seqSettingsvol: action.payload,
+        },
       };
     }
 
     case "seqSettingsdel": {
       return {
         ...state,
-        seqSettingsdel: action.payload,
+        Settings: {
+          ...state.Settings,
+          seqSettingsdel: action.payload,
+        },
       };
     }
 
     case "seqSettingsdelFeedback": {
       return {
         ...state,
-        seqSettingsDelfeedback: action.payload,
+        Settings: {
+          ...state.Settings,
+          seqSettingsDelfeedback: action.payload,
+        },
       };
     }
 

@@ -13,6 +13,8 @@ export default function Volumeslidercomp() {
   return (
     <div>
       <div className="volume-slider">
+        Volume <br></br>
+        {volume}
         <div class="slidecontainer">
           <input
             type="range"
@@ -25,8 +27,6 @@ export default function Volumeslidercomp() {
             step="1"
           />
         </div>
-        Volume <br></br>
-        {volume}
       </div>
     </div>
   );

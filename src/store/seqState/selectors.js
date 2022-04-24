@@ -1,12 +1,12 @@
 export const selectSeqPattern = (state) => state.seqState.seqPattern;
-export const selectSeqPatternMeta = (state) => state.seqState.seqPatternMeta;
-export const selectSeqSound = (state) => state.seqState.seqSoundSelected;
 
 export const SavedPatterns = (state) => state.seqState.SavedPatterns;
 
 export const Transportstate = (state) => state.seqState.Transportstate;
 
-export const seqSettingsVol = (state) => state.seqState.seqSettingsvol;
-export const seqSettingsDel = (state) => state.seqState.seqSettingsdel;
+export const selectSeqSound = (state) =>
+  state.seqState.Settings.seqSoundSelected;
+export const seqSettingsVol = (state) => state.seqState.Settings.seqSettingsvol;
+export const seqSettingsDel = (state) => state.seqState.Settings.seqSettingsdel;
 export const seqSettingsDelfeedback = (state) =>
-  state.seqState.seqSettingsDelfeedback;
+  state.seqState.Settings.seqSettingsDelfeedback;

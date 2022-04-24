@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  selectSeqPatternMeta,
-  selectSeqPattern,
-} from "../../../store/seqState/selectors";
+import { selectSeqPattern } from "../../../store/seqState/selectors";
 
 import {
   Patterncolorsetter,
@@ -13,11 +10,11 @@ import {
 } from "../../../store/seqState/actions";
 
 export default function SeqSaveComp() {
-  const [color, setColor] = useState("Blue");
-  const [name, setName] = useState("RITME1");
+  const [color, setColor] = useState("orange");
+  const [name, setName] = useState("RITME");
   const dispatch = useDispatch();
 
-  const patternMeta = useSelector(selectSeqPatternMeta);
+  const seqPattern = useSelector(selectSeqPattern);
   const pattern = useSelector(selectSeqPattern); // KRIJG TIE NORMAAL UIT DE STORE
 
   useEffect(() => {
@@ -33,8 +30,10 @@ export default function SeqSaveComp() {
       <h3>save pattern</h3>
 
       <select onChange={(e) => setColor(e.target.value)}>
-        <option value="Blue">Blue</option>
-        <option value="Red">Red</option>
+        <option value="#2D00F7">Blue</option>
+        <option value="Navy">Navy Blue</option>
+        <option value="Crimson Purple">Purple Flower</option>
+        <option value="#FF0000">Red</option>
         <option value="Purple">Purple</option>
         <option value="DeepPink">Deep Pink</option>
         <option value="GreenYellow">Green Yellow</option>
@@ -51,7 +50,9 @@ export default function SeqSaveComp() {
 
       <button
         onClick={() => {
-          dispatch(PatternSaver(patternMeta.name, patternMeta.color, pattern));
+          dispatch(
+            PatternSaver(seqPattern.name, seqPattern.color, seqPattern.pattern)
+          );
         }}
       >
         SAVE

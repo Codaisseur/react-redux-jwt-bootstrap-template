@@ -23,14 +23,14 @@ import TBREEL from "./data/TBREEL.png";
 import TBREELlinks from "./data/TBREELlinks.png";
 import TBREELrechts from "./data/TBREELrechts.png";
 
-import CanvasInit from "./pages/CanvasP5/CanvasInit";
 import Canvastry from "./pages/CanvasP5/Canvasp5try";
+import RitmesPage from "./pages/RitmesPage/RitmesPage";
 
 function App() {
   const [playState, setPlayState] = useState(Tone.Transport.state);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
-  const TpState = useSelector(Transportstate);
+  // const TpState = useSelector(Transportstate);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
@@ -42,6 +42,8 @@ function App() {
     Tone.Transport.toggle();
     setPlayState(Tone.Transport.state);
   }, []);
+
+  const toggleHide = () => {};
 
   useEffect(() => {
     dispatch(Transportupdater(Tone.Transport.state));
@@ -55,19 +57,29 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-
         <Route exact path="/canvastry" element={<Canvastry />} />
+
+        <Route exact path="/Ritmespage" element={<RitmesPage />} />
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
 
-      <img
-        style={{ position: "absolute", bottom: "-2%", left: "-2%" }}
-        src={speakerlinks}
-        alt="speakerlinks"
-        height="220"
-      />
+      <button
+        style={{ background: "rgba(201, 76, 76, 0.0", border: "none" }}
+        type="button"
+        onClick={() => {
+          toggleHide();
+        }}
+      >
+        <img
+          style={{ position: "absolute", bottom: "-2%", left: "-2%" }}
+          src={speakerlinks}
+          alt="speakerlinks"
+          height="220"
+        />
+      </button>
+
       <img
         style={{ position: "absolute", bottom: "-4%", right: "-1%" }}
         src={speaker}
@@ -87,7 +99,7 @@ function App() {
 
           <div
             style={
-              TpState === "started"
+              playState === "started"
                 ? { animation: "spin 4s linear infinite" }
                 : { animationplaystate: "paused" }
             }
@@ -98,7 +110,7 @@ function App() {
 
           <div
             style={
-              TpState === "started"
+              playState === "started"
                 ? { animation: "spin 4s linear infinite" }
                 : { animation: "paused" }
             }
