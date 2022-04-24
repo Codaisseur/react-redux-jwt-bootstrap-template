@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import Sketch from "react-p5";
-
 import * as Tone from "tone";
 
-import speakerlinks from "../../data/speakerlinks.png";
+export default function Canvastry(p5) {
+  var soundFile;
 
-export default function Canvastry(props) {
+  var peakCount = 500;
+
   const setup = (p5, canvasParentRef) => {
     const cnv = p5
       .createCanvas(p5.windowWidth, p5.windowHeight)

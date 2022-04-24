@@ -1,15 +1,18 @@
 import { useState } from "react";
-
 import { useDispatch } from "react-redux";
 
-import { seqSettingsDelayaction } from "../../../store/seqState/actions";
+import {
+  seqSettingsDelayaction,
+  seqSettingsDelayfeedbackaction,
+} from "../../../store/seqState/actions";
 
 export default function Delayslidercomp() {
   const dispatch = useDispatch();
-
   const [delaydrywet, setDelaydrywet] = useState(0);
-
   dispatch(seqSettingsDelayaction(delaydrywet));
+
+  const [delayfeedback, setDelayfeedback] = useState(0.4);
+  dispatch(seqSettingsDelayfeedbackaction(delayfeedback));
 
   return (
     <div className="volume-slider">
@@ -27,10 +30,10 @@ export default function Delayslidercomp() {
         <input
           type="range"
           min="0"
-          max="0.5"
-          value={delaydrywet}
+          max="0.9"
+          value={delayfeedback}
           onChange={(e) => {
-            setDelaydrywet(e.target.value);
+            setDelayfeedback(e.target.value);
           }}
           step="0.05"
         />
@@ -38,7 +41,7 @@ export default function Delayslidercomp() {
           type="range"
           min="0"
           max="0.5"
-          value={delaydrywet}
+          value=""
           onChange={(e) => {
             setDelaydrywet(e.target.value);
           }}

@@ -8,12 +8,8 @@ import {
   selectSeqSound,
   seqSettingsVol,
   seqSettingsDel,
+  seqSettingsDelfeedback,
 } from "../../../store/seqState/selectors";
-
-// import {
-//   PatternUpdater,
-//   Transportupdater,
-// } from "../../../store/seqState/actions";
 
 let notes = ["A1", "B1"];
 
@@ -23,7 +19,12 @@ let initialPattern = [
 ];
 
 const vol = new Tone.Volume(0).toDestination();
-const feedbackDelay = new Tone.FeedbackDelay("16n", 0).connect(vol);
+
+const chorus = new Tone.Chorus();
+const filter = new Tone.Filter();
+// const fbfilter = new Tone.FeedbackCombFilter("8t", 0.4).connect(chorus);
+const lpcfilter = new Tone.LowpassCombFilter("12n ", 0.2, 1500).connect(vol);
+const feedbackDelay = new Tone.FeedbackDelay("4t", 0).connect(lpcfilter);
 
 const samples = new Tone.Sampler({
   urls: {
@@ -49,6 +50,7 @@ export default function Sequencerinternet(props) {
   const soundselected = useSelector(selectSeqSound);
   const seqVol = useSelector(seqSettingsVol);
   const seqDelwet = useSelector(seqSettingsDel);
+  const seqDelfeedback = useSelector(seqSettingsDelfeedback);
 
   const [pattern, updatePattern] = useState(seqPattern);
 
@@ -93,15 +95,20 @@ export default function Sequencerinternet(props) {
       notes = ["A2", "G1"];
   }
 
+  // EFFECTS
   useEffect(() => {
     vol.volume.value = seqVol;
   }, [seqVol]);
 
   useEffect(() => {
-    console.log(seqDelwet);
     feedbackDelay.wet.value = seqDelwet;
   }, [seqDelwet]);
 
+  useEffect(() => {
+    feedbackDelay.delayTime.value = seqDelfeedback;
+  }, [seqDelfeedback]);
+
+  feedbackDelay.feedback.value = 0.5;
   //   feedbackDelay.wet.value = seqDelwet;
 
   return (
@@ -122,11 +129,11 @@ export default function Sequencerinternet(props) {
                 style={
                   value === 1
                     ? {
-                        background: `linear-gradient(to left, rgba(0,0,0,0), ${seqPatternMeta.color})`,
+                        background: `linear-gradient(to left, rgba(0,0,0,1), ${seqPatternMeta.color})`,
                         border: seqPatternMeta.color,
                       }
                     : {
-                        background: "rgba(1,1,1,0.4)",
+                        background: "rgba(0,0,0,0.4)",
                         border: seqPatternMeta.color,
                       }
                 }

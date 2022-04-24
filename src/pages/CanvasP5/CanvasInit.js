@@ -3,7 +3,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ReactDOM from "react-dom";
 import Sketch from "react-p5";
-
 import * as Tone from "tone";
 
 import speakerlinks from "../../data/speakerlinks.png";

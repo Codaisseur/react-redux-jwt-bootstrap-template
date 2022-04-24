@@ -9,6 +9,7 @@ const initialState = {
   seqSoundSelected: "Wood",
   seqSettingsvol: -32,
   seqSettingsdel: 1,
+  seqSettingsDelfeedback: 0.7,
 
   Transportstate: "",
 
@@ -90,6 +91,13 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         seqSettingsdel: action.payload,
+      };
+    }
+
+    case "seqSettingsdelFeedback": {
+      return {
+        ...state,
+        seqSettingsDelfeedback: action.payload,
       };
     }
 

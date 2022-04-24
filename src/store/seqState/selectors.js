@@ -8,3 +8,5 @@ export const Transportstate = (state) => state.seqState.Transportstate;
 
 export const seqSettingsVol = (state) => state.seqState.seqSettingsvol;
 export const seqSettingsDel = (state) => state.seqState.seqSettingsdel;
+export const seqSettingsDelfeedback = (state) =>
+  state.seqState.seqSettingsDelfeedback;

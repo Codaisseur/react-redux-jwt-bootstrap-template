@@ -15,7 +15,7 @@ export default function SelPatternSelector() {
   const savedsongs = useSelector(SavedPatterns);
   const selectSeqPatternnn = useSelector(selectSeqPattern);
 
-  console.log("savedsongs", savedsongs); // wordt dus op elke change geupdate :S
+  // console.log("savedsongs", savedsongs); // wordt dus op elke change geupdate :S
 
   const filtered = savedsongs.find((song) => song.name === seqselected);
   if (filtered === undefined) {
