@@ -10,7 +10,7 @@ export default function Delayslidercomp() {
 
   return (
     <div id="delayDIV" className="delay-slider">
-      delay <br></br>
+      Delay <br></br>
       {delaydrywet}
       <div class="slidecontainer">
         <input

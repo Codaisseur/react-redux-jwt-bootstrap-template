@@ -1,0 +1,31 @@
+.RitmesPage {
+}
+
+.ritme-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted rgb(216, 227, 158);
+}
+
+.ritme-card table {
+  display: flex;
+}
+
+.ritme-card tr {
+  border: 2px solid black;
+}
+
+.ritme-card th {
+  border: 1px solid black;
+  width: 60px;
+  height: 60px;
+}
+
+#patname {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 17px;
+  position: absolute;
+  border: 2px solid black;
+  background: white;
+}

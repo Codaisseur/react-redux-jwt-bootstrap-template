@@ -23,21 +23,22 @@ export default function SelPatternSelector() {
       <h3>Pattern selector</h3>
 
       {savedsongs.map((pattern) => (
-        <div style={{ background: pattern.color }}>
-          <button
-            style={{ background: pattern.color }}
-            onClick={() => {
-              dispatch(PatternUpdatewithSelect(pattern)); // was eerst pattern pattern
-            }}
-          >
-            {pattern.name}
-            {/* 
+        <button
+          style={{
+            border: `8px solid ${pattern.color}`,
+            color: `${pattern.color}`,
+          }}
+          onClick={() => {
+            dispatch(PatternUpdatewithSelect(pattern)); // was eerst pattern pattern
+          }}
+        >
+          {pattern.name}
+          {/* 
             <ul>
               <li> {pattern.pattern[1]}</li>
               <li> {pattern.pattern[0]}</li>
             </ul> */}
-          </button>
-        </div>
+        </button>
       ))}
     </div>
   );

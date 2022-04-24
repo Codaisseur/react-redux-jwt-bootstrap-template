@@ -1,6 +1,6 @@
 *,
 button {
-  color: rgb(111, 111, 103);
+  color: rgb(210, 46, 46);
 }
 
 .sequencerblock-style {
@@ -48,7 +48,7 @@ button {
 .Sound-style {
   border: 1px solid black;
 
-  background-color: rgb(131, 135, 28);
+  background-color: rgb(125, 125, 125);
   text-align: center;
 
   display: flex;
@@ -61,7 +61,7 @@ button {
   flex-direction: column;
   min-width: 70px;
 
-  background-color: rgb(131, 135, 28);
+  background-color: rgb(125, 125, 125);
   /* visibility: hidden; */
 }
 
@@ -97,12 +97,11 @@ button {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  background-color: rgb(131, 135, 28);
+  background-color: rgb(125, 125, 125);
 }
 
 .Selector-style {
-  border: 1px solid rgb(96, 0, 0);
-  background-color: rgb(67, 70, 64);
+  border: 1px dotted rgb(255, 255, 255);
 }
 
 .Selector-style button {
@@ -110,6 +109,8 @@ button {
   display: block;
   height: 40px;
   text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
 }
 
 .tbreel-style {
