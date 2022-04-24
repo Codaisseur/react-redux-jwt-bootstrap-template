@@ -1,18 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  seqSettingsDelayaction,
-  seqSettingsDelayfeedbackaction,
-} from "../../../store/seqState/actions";
+import { seqSettingsDelayaction } from "../../../store/seqState/actions";
 
 export default function Delayslidercomp() {
   const dispatch = useDispatch();
   const [delaydrywet, setDelaydrywet] = useState(0);
   dispatch(seqSettingsDelayaction(delaydrywet));
-
-  const [delayfeedback, setDelayfeedback] = useState(0.4);
-  dispatch(seqSettingsDelayfeedbackaction(delayfeedback));
 
   return (
     <div id="delayDIV" className="delay-slider">

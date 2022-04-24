@@ -41,6 +41,11 @@ export const seqSettingsDelayaction = (Payload) => ({
   type: "seqSettingsdel",
   payload: Payload,
 });
+export const seqSettingsfilteraction = (Payload) => ({
+  type: "seqSettingsfilter",
+  payload: Payload,
+});
+
 export const seqSettingsDelayfeedbackaction = (Payload) => ({
   type: "seqSettingsdelFeedback",
   payload: Payload,

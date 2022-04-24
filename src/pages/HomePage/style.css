@@ -39,6 +39,12 @@ button {
   display: none;
 }
 
+.filter-slider {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+}
+
 .Sound-style {
   border: 1px solid black;
 

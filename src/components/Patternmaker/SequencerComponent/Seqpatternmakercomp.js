@@ -4,11 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   selectSeqPattern,
-  selectSeqSound,
-  seqSettingsVol,
-  seqSettingsDel,
-  seqSettingsFilter,
-  seqSettingsDelfeedback,
   seqSettings,
 } from "../../../store/seqState/selectors";
 
@@ -45,17 +40,7 @@ export default function Sequencerinternet(props) {
   const [activeColumn, setColumn] = useState(0);
 
   const seqPattern = useSelector(selectSeqPattern);
-
-  const seqVol = useSelector(seqSettingsVol);
-
-  const soundselected = useSelector(selectSeqSound);
-
   const seqSetting = useSelector(seqSettings);
-
-  const seqDelwet = useSelector(seqSettingsDel);
-
-  const seqDelfeedback = useSelector(seqSettingsDelfeedback);
-
   const [pattern, updatePattern] = useState(seqPattern.pattern); //INIT BY REDUX STATE
 
   // PATTERN UPDATER FROM SELECT
@@ -104,7 +89,7 @@ export default function Sequencerinternet(props) {
       notes = ["A2", "G1"];
   }
 
-  // EFFECTS
+  // SOUND EFFECTS
   useEffect(() => {
     vol.volume.value = seqSetting.seqSettingsvol;
   }, [seqSetting.seqSettingsvol]);
@@ -113,6 +98,10 @@ export default function Sequencerinternet(props) {
     feedbackDelay.wet.value = seqSetting.seqSettingsdel;
     feedbackDelay.feedback.value = seqSetting.seqSettingsdel;
   }, [seqSetting.seqSettingsdel]);
+
+  useEffect(() => {
+    lpfilter.frequency.value = seqSetting.seqSettingsfilter;
+  }, [seqSetting.seqSettingsfilter]);
 
   return (
     <div className="Pattern-style">

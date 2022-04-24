@@ -3,8 +3,8 @@ const initialState = {
     name: "KOEN",
     color: "orange",
     pattern: [
-      [1, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 1],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
     ],
   },
 
@@ -39,6 +39,7 @@ const initialState = {
     seqSoundSelected: "Wood",
     seqSettingsvol: -32,
     seqSettingsdel: 0,
+    seqSettingsfilter: 20000,
     seqSettingsDelfeedback: 0.7,
   },
 
@@ -134,6 +135,15 @@ export default function reducer(state = initialState, action) {
         Settings: {
           ...state.Settings,
           seqSettingsDelfeedback: action.payload,
+        },
+      };
+    }
+    case "seqSettingsfilter": {
+      return {
+        ...state,
+        Settings: {
+          ...state.Settings,
+          seqSettingsfilter: action.payload,
         },
       };
     }

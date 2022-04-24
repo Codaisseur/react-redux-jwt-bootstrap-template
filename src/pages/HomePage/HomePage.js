@@ -15,6 +15,7 @@ import Recordercomponent from "../../components/Patternmaker/recorder/Recorderco
 
 import Volumeslidercomp from "../../components/Patternmaker/Volumeslidercomp/Volumeslidercomp";
 import Delayslidercomp from "../../components/Patternmaker/delayslidercomp/Delayslidercomp";
+import Filterslidercomp from "../../components/Patternmaker/Filterslidercomp/Filterslidercomp";
 
 export default function HomePage() {
   return (
@@ -32,6 +33,8 @@ export default function HomePage() {
           <Recordercomponent />
 
           <SeqSaveComp />
+
+          <Filterslidercomp />
 
           <SelPatternSelector />
         </div>
