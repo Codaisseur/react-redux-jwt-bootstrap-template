@@ -1,46 +1,38 @@
 import React from "react";
-import HeroBanner from "../../components/HeroBanner";
-import { useSelector } from "react-redux";
 import "./style.css";
 
-import CanvasInit from "../CanvasP5/CanvasInit";
+import CanvasWaveformBackground from "../../components/CanvasP5Background/CanvasWaveformBackground";
 
 //COMPONENTS
-import SelSoundComp from "../../components/Patternmaker/SelSoundComp/SelSoundComp";
-import SelPatternSelector from "../../components/Patternmaker/SelPatternSelector/SelPatternSelector";
-import SeqSaveComp from "../../components/Patternmaker/SeqSaveComp/SeqSaveComp";
-import SeqPatternmaker from "../../components/Patternmaker/SequencerComponent/Seqpatternmakercomp";
+import PatternMakerComp from "../../components/Patternmaker/PatternMakerComp/PatternMakerComp";
 
-import Recordercomponent from "../../components/Patternmaker/recorder/Recordercomponent";
+import SelectSoundComp from "../../components/Patternmaker/SelectSoundComp/SelectSoundComp";
+import PatternSelectorComp from "../../components/Patternmaker/PatternSelectorComp/PatternSelectorComp";
 
-import Volumeslidercomp from "../../components/Patternmaker/Volumeslidercomp/Volumeslidercomp";
-import Delayslidercomp from "../../components/Patternmaker/delayslidercomp/Delayslidercomp";
-import Filterslidercomp from "../../components/Patternmaker/Filterslidercomp/Filterslidercomp";
+import SavePatternComp from "../../components/Patternmaker/SavePatternComp/SavePatternComp";
+
+import RecorderComp from "../../components/Patternmaker/RecorderComp/RecorderComp";
+
+import VolumeSliderComp from "../../components/Patternmaker/VolumeSliderComp/VolumeSliderComp";
+import DelaysliderComp from "../../components/Patternmaker/DelaySliderComp/DelaysliderComp";
+import FiltersliderComp from "../../components/Patternmaker/FilterSliderComp/FiltersliderComp";
 
 export default function HomePage() {
   return (
     <div>
-      <SeqPatternmaker />
+      <PatternMakerComp />
 
-      <div className="wholething">
-        <div className="sequencerblock-style">
-          <Volumeslidercomp />
-
-          <Delayslidercomp />
-
-          <SelSoundComp />
-
-          <Recordercomponent />
-
-          <SeqSaveComp />
-
-          <Filterslidercomp />
-
-          <SelPatternSelector />
-        </div>
-
-        <CanvasInit />
+      <div className="pattern-components-style">
+        <VolumeSliderComp />
+        <DelaysliderComp />
+        <SelectSoundComp />
+        <RecorderComp />
+        <SavePatternComp />
+        <FiltersliderComp />
+        <PatternSelectorComp />
       </div>
+
+      <CanvasWaveformBackground />
     </div>
   );
 }

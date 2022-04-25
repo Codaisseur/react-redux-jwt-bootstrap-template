@@ -11,8 +11,11 @@ import Login from "./pages/Login";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
-import { Transportstate } from "./store/seqState/selectors";
+
+// import { Transportstate } from "./store/seqState/selectors";
+
 import { getUserWithStoredToken } from "./store/user/actions";
+
 import { Transportupdater } from "./store/seqState/actions";
 import HomePage from "./pages/HomePage/HomePage";
 
@@ -47,8 +50,17 @@ function App() {
     dispatch(Transportupdater(Tone.Transport.state));
   }, [Tone.Transport.state]);
 
-  function toggleHide() {
+  function DelayToggleHide() {
     var x = document.getElementById("delayDIV");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
+  function FilterToggleHide() {
+    var x = document.getElementById("filterDIV");
     if (x.style.display === "block") {
       x.style.display = "none";
     } else {
@@ -76,7 +88,7 @@ function App() {
         style={{ background: "rgba(201, 76, 76, 0.0", border: "none" }}
         type="button"
         onClick={() => {
-          toggleHide();
+          DelayToggleHide();
         }}
       >
         <img
@@ -87,12 +99,20 @@ function App() {
         />
       </button>
 
-      <img
-        style={{ position: "absolute", bottom: "-4%", right: "-1%" }}
-        src={speaker}
-        alt="speaker"
-        height="220"
-      />
+      <button
+        style={{ background: "rgba(201, 76, 76, 0.0", border: "none" }}
+        type="button"
+        onClick={() => {
+          FilterToggleHide();
+        }}
+      >
+        <img
+          style={{ position: "absolute", bottom: "-4%", right: "-1%" }}
+          src={speaker}
+          alt="speaker"
+          height="220"
+        />
+      </button>
 
       <div className="tbreel-style">
         <button

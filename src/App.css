@@ -21,7 +21,7 @@ body,
   justify-content: center;
 }
 
-.square-page {
+/* .square-page {
   height: 100%;
   width: 100%;
   display: flex;
@@ -29,9 +29,9 @@ body,
   justify-content: space-around;
   align-items: flex-start;
   align-content: stretch;
-}
+} */
 
-.square {
+/* .square {
   border: 1px solid black;
   width: 100px;
   height: 100px;
@@ -39,7 +39,7 @@ body,
 
 .TonejsPage {
   border: 100px solid black;
-}
+} */
 
 .main-container {
   height: 100%;
@@ -73,16 +73,6 @@ body,
   width: 100px;
   justify-content: space-between;
 }
-
-/* .square-container {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-} */
 
 .displayDestinations {
   display: flex;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SeqSoundSetter } from "../../../store/seqState/actions";
 import { seqSettings } from "../../../store/seqState/selectors";
 
-export default function SelSoundComp() {
+export default function SelectSoundComp() {
   const [soundStyle, setSoundStyle] = useState("loud");
   const dispatch = useDispatch();
 

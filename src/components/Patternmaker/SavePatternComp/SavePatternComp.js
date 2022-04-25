@@ -9,7 +9,7 @@ import {
   PatternSaver,
 } from "../../../store/seqState/actions";
 
-export default function SeqSaveComp() {
+export default function SavePatternComp() {
   const [color, setColor] = useState("orange");
   const [name, setName] = useState("RITME");
   const dispatch = useDispatch();

@@ -34,7 +34,7 @@ const samples = new Tone.Sampler({
   baseUrl: "http://127.0.0.1:5500/src/data/Drumsounds",
 }).connect(feedbackDelay);
 
-export default function Sequencerinternet(props) {
+export default function PatternMakerComp(props) {
   const dispatch = useDispatch();
 
   const [activeColumn, setColumn] = useState(0);
@@ -65,7 +65,7 @@ export default function Sequencerinternet(props) {
     return () => loop.dispose();
   }, [pattern]);
 
-  // Update pattern by making a copy and inverting the value :S
+  // Update pattern by making a copy and inverting the value :S WHYYY??????
   function setPattern({ x, y, value }) {
     const patternCopy = [...pattern];
     patternCopy[y][x] = +!value;

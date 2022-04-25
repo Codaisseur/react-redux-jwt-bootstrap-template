@@ -4,19 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { SavedPatterns } from "../../../store/seqState/selectors";
 
 import { PatternUpdatewithSelect } from "../../../store/seqState/actions";
-export default function SelPatternSelector() {
+
+export default function PatternSelectorComp() {
   const dispatch = useDispatch();
   const [seqselected, setSeq] = useState("");
 
   const savedsongs = useSelector(SavedPatterns);
 
-  const filtered = savedsongs.find((song) => song.name === seqselected);
-  if (filtered === undefined) {
-    console.log("ik ben nog undfeind");
-  } else {
-    console.log("DEZE WIL IK NAAR DE MACHINE STUREN", filtered.pattern);
-    // dispatch(PatternUpdatewithSelect(filtered.pattern));
-  }
+  // const filtered = savedsongs.find((song) => song.name === seqselected);
+  // if (filtered === undefined) {
+  //   console.log("ik ben nog undfeind");
+  // } else {
+  //   console.log("DEZE WIL IK NAAR DE MACHINE STUREN", filtered.pattern);
+  //   // dispatch(PatternUpdatewithSelect(filtered.pattern));
+  // }
 
   return (
     <div className="Selector-style">
@@ -33,11 +34,6 @@ export default function SelPatternSelector() {
           }}
         >
           {pattern.name}
-          {/* 
-            <ul>
-              <li> {pattern.pattern[1]}</li>
-              <li> {pattern.pattern[0]}</li>
-            </ul> */}
         </button>
       ))}
     </div>

@@ -1,7 +1,5 @@
 import { useState } from "react";
-
 import { useDispatch } from "react-redux";
-
 import { seqSettingsfilteraction } from "../../../store/seqState/actions";
 
 export default function Filterslidercomp() {
@@ -13,14 +11,14 @@ export default function Filterslidercomp() {
 
   return (
     <div>
-      <div className="filter-slider">
+      <div id="filterDIV" className="slider-style">
         Filter <br></br>
         {filter}
         <div class="slidecontainer">
           <input
             type="range"
-            min="80"
-            max="4000"
+            min="50"
+            max="5000"
             value={filter}
             onChange={(e) => {
               setFilter(e.target.value);
