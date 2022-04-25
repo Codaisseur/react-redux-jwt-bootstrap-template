@@ -1,10 +1,10 @@
 const initialState = {
   seqPattern: {
-    name: "Koen Meloen",
+    name: "INIT DEPINIT",
     color: "orange",
     pattern: [
-      [0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 1, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0],
     ],
   },
 
@@ -94,8 +94,6 @@ export default function reducer(state = initialState, action) {
       };
     }
     case "PatternSaver":
-      console.log("action", action.payload);
-      console.log("state", state);
       const removeElemnt = state.SavedPatterns.pop();
       return {
         ...state,

@@ -35,6 +35,28 @@ export default function TeacherPortalPage() {
 
       <p>YOUR ID :{userData.id}</p>
 
+      <form>
+        <strong> CHANGE YOUR CLASS SETTINGS </strong>
+        <br></br>
+        <label for="classname">Name of the Class:</label>
+        <input
+          type="text"
+          id="classname"
+          name="classname"
+          defaultValue={userData.classname}
+        ></input>
+        <br></br>
+        <label for="classpassword">Password for the class</label>
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          defaultValue="PASSWORD"
+        ></input>
+        <br></br>
+        <input type="submit"></input>
+      </form>
+
       <h4>Your class:</h4>
       {Students.map((student) => (
         <table>
@@ -61,28 +83,4 @@ export default function TeacherPortalPage() {
       <button type="submit">Save class</button>
     </div>
   );
-}
-
-{
-  /* <form>
-<strong> CHANGE YOUR CLASS SETTINGS </strong>
-<br></br>
-<label for="classname">Name of the Class:</label>
-<input
-  type="text"
-  id="classname"
-  name="classname"
-  defaultValue={userData.classname}
-></input>
-<br></br>
-<label for="classpassword">Password for the class</label>
-<input
-  type="text"
-  id="fname"
-  name="fname"
-  defaultValue="PASSWORD"
-></input>
-<br></br>
-<input type="submit"></input>
-</form> */
 }
