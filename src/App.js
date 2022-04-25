@@ -6,18 +6,18 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
+
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import HomePage from "./pages/HomePage/HomePage";
+import TeacherPortalPage from "./pages/TeacherPortalPage/TeacherPortalPage";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 
-// import { Transportstate } from "./store/seqState/selectors";
-
 import { getUserWithStoredToken } from "./store/user/actions";
 
 import { Transportupdater } from "./store/seqState/actions";
-import HomePage from "./pages/HomePage/HomePage";
 
 //SPEAKERS
 import speaker from "./data/speaker.png";
@@ -78,7 +78,8 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/canvastry" element={<Canvastry />} />
 
-        <Route exact path="/Ritmespage" element={<RitmesPage />} />
+        <Route exact path="/ritmespage" element={<RitmesPage />} />
+        <Route exact path="/teacherportal" element={<TeacherPortalPage />} />
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

@@ -1,6 +1,6 @@
 const initialState = {
   seqPattern: {
-    name: "KOEN",
+    name: "Koen Meloen",
     color: "orange",
     pattern: [
       [0, 0, 0, 0, 0, 0, 0, 0],
@@ -59,7 +59,7 @@ export default function reducer(state = initialState, action) {
     }
 
     case "PATTERNUPDATESELECTOR": {
-      console.log(action.payload);
+      console.log("PATTERNUPDATESELECTOR:", action.payload);
       return {
         ...state,
         seqPattern: action.payload,
