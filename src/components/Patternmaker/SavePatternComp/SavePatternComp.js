@@ -17,13 +17,15 @@ export default function SavePatternComp() {
   const seqPattern = useSelector(selectSeqPattern);
   const pattern = useSelector(selectSeqPattern); // KRIJG TIE NORMAAL UIT DE STORE
 
-  useEffect(() => {
-    dispatch(Patterncolorsetter(color));
-  }, [color]);
+  console.log("selected values", seqPattern);
 
-  useEffect(() => {
-    dispatch(Patternnamesetter(name));
-  }, [name]);
+  // useEffect(() => {
+  //   dispatch(Patterncolorsetter(color));
+  // }, [color]);
+
+  // useEffect(() => {
+  //   dispatch(Patternnamesetter(name));
+  // }, [name]);
 
   return (
     <div className="Save-style">
@@ -50,7 +52,7 @@ export default function SavePatternComp() {
 
       <button
         onClick={() => {
-          dispatch(PatternSaver(name, seqPattern.color, seqPattern.pattern));
+          dispatch(PatternSaver(name, color, seqPattern.pattern));
         }}
       >
         SAVE

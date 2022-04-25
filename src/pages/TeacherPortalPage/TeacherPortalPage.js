@@ -4,7 +4,7 @@ import { selectUser } from "../../store/user/selectors";
 import { ClassStudents } from "../../store/classState/selectors";
 
 import { useState } from "react";
-import { AddStudent } from "../../store/classState/actions";
+import { AddStudent, DelStudent } from "../../store/classState/actions";
 
 export default function TeacherPortalPage() {
   const dispatch = useDispatch();
@@ -39,6 +39,10 @@ export default function TeacherPortalPage() {
       {Students.map((student) => (
         <table>
           <tr>{student}</tr>
+
+          <button onClick={() => dispatch(DelStudent(student))}>
+            delete student
+          </button>
         </table>
       ))}
 

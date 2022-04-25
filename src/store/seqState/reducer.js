@@ -33,6 +33,14 @@ const initialState = {
         [1, 0, 0, 1, 0, 1, 0, 0],
       ],
     },
+    {
+      name: "EMPTY",
+      color: "white",
+      pattern: [
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+      ],
+    },
   ],
 
   Settings: {
@@ -86,9 +94,23 @@ export default function reducer(state = initialState, action) {
       };
     }
     case "PatternSaver":
+      console.log("action", action.payload);
+      console.log("state", state);
+      const removeElemnt = state.SavedPatterns.pop();
       return {
         ...state,
-        SavedPatterns: [...state.SavedPatterns, action.payload],
+        SavedPatterns: [
+          ...state.SavedPatterns,
+          action.payload,
+          {
+            name: "EMPTY",
+            color: "white",
+            pattern: [
+              [0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0],
+            ],
+          },
+        ],
       };
 
     case "Transportupdater": {

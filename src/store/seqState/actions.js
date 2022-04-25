@@ -17,10 +17,12 @@ export const Patternnamesetter = (Payload) => ({
   type: "Patternnamesetter",
   payload: Payload,
 });
-export const PatternSaver = (name, color, pattern) => ({
+export const PatternSaver = (name, color, pattern) => {
+  console.log("values in action", name, color, pattern)
+  return {
   type: "PatternSaver",
   payload: { name, color, pattern },
-});
+}};
 
 
 

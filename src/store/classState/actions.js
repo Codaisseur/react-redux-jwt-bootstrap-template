@@ -3,11 +3,7 @@ export const AddStudent = (payload) => ({
   payload: payload,
 });
 
-// export const addInstrument = (item) => ({
-//   type: "instrument/add",
-//   payload: item,
-// });
-
-// export const delInstrument = () => ({
-//   type: "instrument/del",
-// });
+export const DelStudent = (payload) => ({
+  type: "DelStudent",
+  payload: payload,
+});
