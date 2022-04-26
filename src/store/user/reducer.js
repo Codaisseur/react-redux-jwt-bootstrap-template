@@ -4,8 +4,10 @@ const initialState = {
   token: localStorage.getItem("token"),
   name: null,
   email: null,
+  schoolname: null,
   classname: null,
-  teacher: null,
+  isteacher: null,
+  students: [],
 };
 
 export default (state = initialState, action) => {

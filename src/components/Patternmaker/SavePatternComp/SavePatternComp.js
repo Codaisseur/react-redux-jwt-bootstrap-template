@@ -17,11 +17,9 @@ export default function SavePatternComp() {
   const seqPattern = useSelector(selectSeqPattern);
   const pattern = useSelector(selectSeqPattern); // KRIJG TIE NORMAAL UIT DE STORE
 
-  console.log("selected values", seqPattern);
-
-  // useEffect(() => {
-  //   dispatch(Patterncolorsetter(color));
-  // }, [color]);
+  useEffect(() => {
+    dispatch(Patterncolorsetter(color));
+  }, [color]);
 
   // useEffect(() => {
   //   dispatch(Patternnamesetter(name));
@@ -32,6 +30,7 @@ export default function SavePatternComp() {
       <h3>Save pattern</h3>
 
       <select onChange={(e) => setColor(e.target.value)}>
+        <option value="Orange">Orange</option>
         <option value="#2D00F7">Blue</option>
         <option value="Navy">Navy Blue</option>
         <option value="#5D00F3">Purple Flower</option>

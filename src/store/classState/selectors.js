@@ -1,1 +1,1 @@
-export const ClassStudents = (state) => state.classState.Students;
+export const ClassStudents = (state) => state.classState.SavedClass;

@@ -5,12 +5,9 @@ import CanvasWaveformBackground from "../../components/CanvasP5Background/Canvas
 
 //COMPONENTS
 import PatternMakerComp from "../../components/Patternmaker/PatternMakerComp/PatternMakerComp";
-
 import SelectSoundComp from "../../components/Patternmaker/SelectSoundComp/SelectSoundComp";
 import PatternSelectorComp from "../../components/Patternmaker/PatternSelectorComp/PatternSelectorComp";
-
 import SavePatternComp from "../../components/Patternmaker/SavePatternComp/SavePatternComp";
-
 import RecorderComp from "../../components/Patternmaker/RecorderComp/RecorderComp";
 
 import VolumeSliderComp from "../../components/Patternmaker/VolumeSliderComp/VolumeSliderComp";

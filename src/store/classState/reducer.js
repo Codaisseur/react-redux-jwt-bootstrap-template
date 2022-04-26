@@ -1,5 +1,6 @@
 const classState = {
-  Students: ["Erik", "Jan", "Karla"],
+  Students: ["Erik init", "Jan init", "Karla init"],
+  SavedClass: [],
 };
 
 export default function reducer(state = classState, action) {
@@ -11,12 +12,18 @@ export default function reducer(state = classState, action) {
       };
     }
     case "DelStudent": {
-      console.log("deze student wil ik verwijderen", action.payload);
       return {
         ...state,
         Students: state.Students.filter((name) => name !== action.payload),
       };
     }
+    case "SaveClass": {
+      return {
+        ...state,
+        SavedClass: action.payload,
+      };
+    }
+
     default:
       return state;
   }
