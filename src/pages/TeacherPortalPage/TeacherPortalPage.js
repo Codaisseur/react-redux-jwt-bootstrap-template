@@ -17,7 +17,9 @@ export default function TeacherPortalPage() {
   const userData = useSelector(selectUser);
   const Students = useSelector(ClassStudents);
 
-  dispatch(FetchStudents());
+  useEffect(() => {
+    dispatch(FetchStudents());
+  }, []);
 
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");
