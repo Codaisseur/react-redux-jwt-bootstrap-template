@@ -47,10 +47,6 @@ export default function TeacherPortalPage() {
 
   const SaveTheClass = () => {
     dispatch(SaveClass(className, password, Students, userData.id));
-
-    // Students.map((student) => {
-    //   dispatch(SaveClass(className, student, userData.id));
-    // });
   };
 
   return (
