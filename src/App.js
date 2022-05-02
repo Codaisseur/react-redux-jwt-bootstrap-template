@@ -3,14 +3,13 @@ import * as Tone from "tone";
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
+
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage/HomePage";
-import TeacherPortalPage from "./pages/TeacherPortalPage/TeacherPortalPage";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -26,14 +25,10 @@ import TBREEL from "./data/TBREEL.png";
 import TBREELlinks from "./data/TBREELlinks.png";
 import TBREELrechts from "./data/TBREELrechts.png";
 
-import Canvastry from "./pages/CanvasP5/Canvasp5try";
-import RitmesPage from "./pages/RitmesPage/RitmesPage";
-
 function App() {
   const [playState, setPlayState] = useState(Tone.Transport.state);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
-  // const TpState = useSelector(Transportstate);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
@@ -48,7 +43,7 @@ function App() {
 
   useEffect(() => {
     dispatch(Transportupdater(Tone.Transport.state));
-  }, [Tone.Transport.state]);
+  }, [dispatch, Tone.Transport.state]);
 
   function DelayToggleHide() {
     var x = document.getElementById("delayDIV");
@@ -70,16 +65,12 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
+      {/* <Navigation /> */}
       <MessageBox />
       {isLoading ? <Loading /> : null}
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/canvastry" element={<Canvastry />} />
-
-        <Route exact path="/ritmespage" element={<RitmesPage />} />
-        <Route exact path="/teacherportal" element={<TeacherPortalPage />} />
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

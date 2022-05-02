@@ -1,8 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import * as Tone from "tone";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { Transportstate } from "../../../store/seqState/selectors";
 import { Transportupdater } from "../../../store/seqState/actions";
 
 export default function Startstopcomp() {

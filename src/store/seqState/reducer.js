@@ -67,7 +67,6 @@ export default function reducer(state = initialState, action) {
     }
 
     case "PATTERNUPDATESELECTOR": {
-      console.log("PATTERNUPDATESELECTOR:", action.payload);
       return {
         ...state,
         seqPattern: action.payload,
@@ -94,7 +93,7 @@ export default function reducer(state = initialState, action) {
       };
     }
     case "PatternSaver":
-      const removeElemnt = state.SavedPatterns.pop();
+      const removeElement = state.SavedPatterns.pop();
       return {
         ...state,
         SavedPatterns: [

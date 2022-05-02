@@ -5,7 +5,6 @@ import { selectSeqPattern } from "../../../store/seqState/selectors";
 
 import {
   Patterncolorsetter,
-  Patternnamesetter,
   PatternSaver,
 } from "../../../store/seqState/actions";
 
@@ -15,15 +14,11 @@ export default function SavePatternComp() {
   const dispatch = useDispatch();
 
   const seqPattern = useSelector(selectSeqPattern);
-  const pattern = useSelector(selectSeqPattern); // KRIJG TIE NORMAAL UIT DE STORE
+  // const pattern = useSelector(selectSeqPattern); // KRIJG TIE NORMAAL UIT DE STORE
 
   useEffect(() => {
     dispatch(Patterncolorsetter(color));
-  }, [color]);
-
-  // useEffect(() => {
-  //   dispatch(Patternnamesetter(name));
-  // }, [name]);
+  }, [dispatch, color]);
 
   return (
     <div className="Save-style">

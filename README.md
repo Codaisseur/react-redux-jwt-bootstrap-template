@@ -1,5 +1,8 @@
 Welcome to the Fisherprace™ 'Thingamabob' repository
 
+This is my portfolio project.
+I'm building an educational sequencer for kids under 12y/o that can be used by schoolteachers.
+
 Use the Frond-End Repo (project temporarily named front react-redux-jwt-bootstrap)
 npm install
 npm run start
@@ -8,9 +11,6 @@ go Live with the Server
 Use Back-End Repo (project temporarily named backendexpress2)
 npm install
 npx nodemon
-
-This is my portfolio project.
-I'm building an educational sequencer for kids under 12y/o that can be used by schoolteachers.
 
 HOW TO PLAY WITH IT:
 Press the Tape-recorder to play/stop audio.

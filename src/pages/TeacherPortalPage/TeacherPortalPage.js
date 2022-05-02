@@ -6,11 +6,7 @@ import { ClassStudents } from "../../store/classState/selectors";
 import { FetchStudents } from "../../store/classState/actions";
 
 import { useState, useEffect } from "react";
-import {
-  AddStudent,
-  DelStudent,
-  SaveClass,
-} from "../../store/classState/actions";
+import { AddStudent, DelStudent } from "../../store/classState/actions";
 
 export default function TeacherPortalPage() {
   const dispatch = useDispatch();
@@ -42,12 +38,13 @@ export default function TeacherPortalPage() {
     }
     setNameError("");
     dispatch(AddStudent(name));
+
     setName("");
   };
 
-  const SaveTheClass = () => {
-    dispatch(SaveClass(className, password, Students, userData.id));
-  };
+  // const SaveTheClass = () => {
+  //   dispatch(SaveClass(className, password, Students, userData.id));
+  //};
 
   return (
     <div>
@@ -82,7 +79,9 @@ export default function TeacherPortalPage() {
           <table>
             <tr>
               {student.studentname}
-              {/* <button onClick={() => dispatch(DelStudent())}>-</button> */}
+              <button onClick={() => dispatch(DelStudent(student.id))}>
+                -
+              </button>
             </tr>
           </table>
         ))}
@@ -99,7 +98,7 @@ export default function TeacherPortalPage() {
           <button type="submit">ADD STUDENT</button>
         </form>
 
-        <button onClick={() => SaveTheClass()}>Save class</button>
+        {/* <button onClick={() => SaveTheClass()}>Save class</button> */}
       </div>
     </div>
   );

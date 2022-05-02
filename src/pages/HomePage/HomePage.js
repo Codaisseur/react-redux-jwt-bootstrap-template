@@ -1,4 +1,3 @@
-import React from "react";
 import "./style.css";
 
 import CanvasWaveformBackground from "../../components/CanvasP5Background/CanvasWaveformBackground";
@@ -19,7 +18,7 @@ export default function HomePage() {
     <div>
       <PatternMakerComp />
 
-      <div className="pattern-components-style">
+      <div style={{ color: "blue" }} className="pattern-components-style">
         <VolumeSliderComp />
         <DelaysliderComp />
         <SelectSoundComp />

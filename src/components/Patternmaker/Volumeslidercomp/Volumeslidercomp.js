@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useDispatch } from "react-redux";
 
@@ -8,14 +8,16 @@ export default function Volumeslidercomp() {
   const dispatch = useDispatch();
   const [volume, setVolume] = useState(0);
 
-  dispatch(seqSettingsVolaction(volume));
+  useEffect(() => {
+    dispatch(seqSettingsVolaction(volume));
+  }, [dispatch, volume]);
 
   return (
     <div>
       <div className="volume-slider">
         Volume <br></br>
         {volume}
-        <div class="slidecontainer">
+        <div className="slidecontainer">
           <input
             type="range"
             min="-40"

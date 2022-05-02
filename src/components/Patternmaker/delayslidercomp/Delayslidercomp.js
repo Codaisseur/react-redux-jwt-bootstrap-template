@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { seqSettingsDelayaction } from "../../../store/seqState/actions";
@@ -6,13 +6,16 @@ import { seqSettingsDelayaction } from "../../../store/seqState/actions";
 export default function DelaysliderComp() {
   const dispatch = useDispatch();
   const [delaydrywet, setDelaydrywet] = useState(0);
-  dispatch(seqSettingsDelayaction(delaydrywet));
+
+  useEffect(() => {
+    dispatch(seqSettingsDelayaction(delaydrywet));
+  }, [dispatch, delaydrywet]);
 
   return (
     <div id="delayDIV" className="slider-style">
       Delay <br></br>
       {delaydrywet}
-      <div class="slidecontainer">
+      <div className="slidecontainer">
         <input
           type="range"
           min="0"

@@ -1,22 +1,21 @@
 const classState = {
-  Students: ["Erik init", "Jan init", "Karla init"],
   SavedClass: [],
 };
 
 export default function reducer(state = classState, action) {
   switch (action.type) {
-    case "AddStudent": {
+    case "AddStudentsucces": {
       return {
         ...state,
-        Students: [...state.Students, action.payload],
+        SavedClass: [...state.SavedClass, action.payload],
       };
     }
-    case "DelStudent": {
-      return {
-        ...state,
-        Students: state.Students.filter((name) => name !== action.payload),
-      };
-    }
+    // case "DelStudent": {
+    //   return {
+    //     ...state,
+    //     Students: state.Students.filter((name) => name !== action.payload),
+    //   };
+    // }
     case "SaveClass": {
       return {
         ...state,

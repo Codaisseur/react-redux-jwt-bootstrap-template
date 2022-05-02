@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as Tone from "tone";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,11 +10,6 @@ import {
 import { PatternUpdater } from "../../../store/seqState/actions";
 
 let notes = ["A1", "B1"];
-
-// let initialPattern = [
-//   [0, 0, 1, 0, 0, 0, 1, 0],
-//   [1, 0, 0, 1, 1, 0, 0, 0],
-// ];
 
 const vol = new Tone.Volume(0).toDestination();
 const lpfilter = new Tone.Filter().connect(vol);
@@ -38,7 +33,6 @@ export default function PatternMakerComp(props) {
   const dispatch = useDispatch();
 
   const [activeColumn, setColumn] = useState(0);
-
   const seqPattern = useSelector(selectSeqPattern);
   const seqSetting = useSelector(seqSettings);
   const [pattern, updatePattern] = useState(seqPattern.pattern); //INIT BY REDUX STATE
@@ -86,7 +80,7 @@ export default function PatternMakerComp(props) {
       notes = ["A2", "G1"];
       break;
     default:
-      notes = ["A2", "G1"];
+      notes = ["B1", "G1"];
   }
 
   // SOUND EFFECTS
@@ -115,9 +109,10 @@ export default function PatternMakerComp(props) {
         }}
       >
         {seqPattern.pattern.map((row, y) => (
-          <tr key={y}>
+          <div key={y}>
             {row.map((value, x) => (
               <button
+                key={x}
                 style={
                   value === 1
                     ? {
@@ -135,7 +130,7 @@ export default function PatternMakerComp(props) {
                 }}
               ></button>
             ))}
-          </tr>
+          </div>
         ))}
       </div>
     </div>

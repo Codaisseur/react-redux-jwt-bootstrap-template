@@ -6,7 +6,6 @@ import * as Tone from "tone";
 import { selectSeqPattern } from "../../store/seqState/selectors";
 
 let meter;
-let levelDiameter;
 let analyser;
 let playing = true;
 
@@ -32,22 +31,12 @@ export default function CanvasWaveformBackground(props) {
     p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
   }
 
-  const draw = (p5) => {
+  const draw = (p5, canvasParentRef) => {
     const dim = Math.min(p5.width, p5.height);
 
-    const diameter = dim * 0.2;
     p5.fill(seqPattern.color);
 
     p5.stroke(seqPattern.color);
-
-    levelDiameter = p5.map(
-      meter.getLevel(),
-      -100,
-      40,
-      diameter,
-      diameter * 3,
-      true
-    );
 
     p5.strokeWeight(dim * 0.0025);
     p5.stroke(seqPattern.color);

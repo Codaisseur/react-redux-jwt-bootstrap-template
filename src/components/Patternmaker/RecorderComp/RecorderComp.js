@@ -1,6 +1,6 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 import * as Tone from "tone";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { Transportstate } from "../../../store/seqState/selectors";
 
@@ -8,8 +8,8 @@ const recorderer = new Tone.Recorder();
 Tone.Destination.connect(recorderer);
 
 export default function RecorderComp() {
-  const dispatch = useDispatch();
   let TpState = useSelector(Transportstate);
+  // console.log(TpState);
 
   const [recordingStatus, setRecordingStatus] = useState(false);
 
