@@ -11,7 +11,7 @@ import { PatternUpdater } from "../../../store/seqState/actions";
 
 let notes = ["A1", "B1"];
 
-const vol = new Tone.Volume(0).toDestination();
+const vol = new Tone.Volume(-12).toDestination();
 const lpfilter = new Tone.Filter().connect(vol);
 const feedbackDelay = new Tone.FeedbackDelay("12n", 0).connect(lpfilter);
 
@@ -80,7 +80,7 @@ export default function PatternMakerComp(props) {
       notes = ["A2", "G1"];
       break;
     default:
-      notes = ["B1", "G1"];
+      notes = ["E2", "G1"];
   }
 
   // SOUND EFFECTS
