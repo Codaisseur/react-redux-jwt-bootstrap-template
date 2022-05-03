@@ -1,0 +1,136 @@
+/* h3 {
+  color: rgb(255, 255, 255);
+} */
+
+.pattern-components-style {
+  /* border: 1px dotted rgb(51, 51, 51); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.slidecontainer {
+  text-align: center;
+}
+
+.slidecontainer input[type="range"] {
+  -webkit-appearance: slider-vertical;
+  height: 150px;
+  width: 50px;
+}
+
+.volume-slider {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -100%);
+}
+
+.slider-style {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  display: none;
+}
+
+.Sound-style {
+  /* border: 1px solid black; */
+
+  background-color: rgb(125, 125, 125);
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.Recorder-style {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  min-width: 70px;
+
+  background-color: rgb(125, 125, 125);
+}
+
+.Pattern-style {
+  /* background: rgba(0, 0, 0, 0); */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pattern-seqrows {
+  height: 208px;
+  width: 508px;
+  border: 4px solid black;
+}
+.pattern-seqrows button {
+  /* border: 1px solid rgb(123, 89, 89); */
+  height: 100px;
+  width: 62.5px;
+}
+
+.Save-style {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(125, 125, 125);
+}
+
+.Selector-style button {
+  width: 100%;
+  border-radius: 5px;
+  display: block;
+  height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+.tbreel-style {
+  position: absolute;
+  bottom: -2%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+}
+.draaiding1 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 55%;
+  bottom: 43%;
+  left: 2%;
+}
+.draaiding2 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 56%;
+  bottom: 42%;
+  left: 49%;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

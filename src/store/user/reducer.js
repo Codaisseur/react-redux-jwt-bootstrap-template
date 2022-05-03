@@ -3,7 +3,11 @@ import { LOG_OUT, LOGIN_SUCCESS, TOKEN_STILL_VALID } from "./actions";
 const initialState = {
   token: localStorage.getItem("token"),
   name: null,
-  email: null
+  email: null,
+  schoolname: null,
+  classname: null,
+  isteacher: null,
+  students: [],
 };
 
 export default (state = initialState, action) => {

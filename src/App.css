@@ -1,0 +1,144 @@
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+/* .square-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: stretch;
+} */
+
+/* .square {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+.TonejsPage {
+  border: 100px solid black;
+} */
+
+.main-container {
+  height: 100%;
+  background-color: red;
+  width: 50%;
+}
+
+.banner-text-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 4px;
+  background-color: #333;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.navbar-link-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 100px;
+  align-items: center;
+  background-color: rgb(75, 225, 77);
+}
+
+.navbar-right {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.displayDestinations {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.destinationCard {
+  width: 200px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.destinationCard > img {
+  width: 100%;
+}
+
+.destination-card-text {
+  padding: 10px;
+}
+
+.destinationsTitle {
+}
+
+.banner {
+}
+
+.navbar {
+}
+
+.navbarRight {
+}
+
+.navbarIcon {
+}
+
+.footer {
+}
+
+/* this one is already addeed, it's for the animation */
+
+.test {
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-1500px, 0, 0);
+  }
+}
+
+h1 {
+  text-align: center;
+}
+#gameContainer {
+}
+body {
+  background: #111;
+  color: #3d2273;
+}
+canvas {
+  background: #549824;
+  padding: 0;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  display: block;
+}

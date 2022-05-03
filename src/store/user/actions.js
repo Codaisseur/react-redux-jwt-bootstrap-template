@@ -8,6 +8,8 @@ import {
   setMessage,
 } from "../appState/actions";
 
+import { SaveClass } from "../classState/actions";
+
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
 export const LOG_OUT = "LOG_OUT";
@@ -60,10 +62,15 @@ export const login = (email, password) => {
         email,
         password,
       });
+      console.log("responsedata", response.data);
 
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
       dispatch(appDoneLoading());
+
+      if (response.data.isteacher === true) {
+        dispatch(SaveClass(response.data.students));
+      }
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);

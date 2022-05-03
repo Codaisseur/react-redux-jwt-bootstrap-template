@@ -1,42 +1,46 @@
-# Frontend template
+Welcome to the Fisherprace™ 'Thingamabob' repository
 
-This is a simple react/redux/jwt template to start a project quickly
+This is my portfolio project.
+I'm building an educational sequencer for kids under 12y/o that can be used by schoolteachers.
 
-## Table of contents:
-
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
-
-## SETUP How to use this template
-
-1. Create a new project based on this template using the `Use this template` button
-
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
-
-2. Clone the app
-
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
-
-3. cd into your project
-
-```
-cd YOUR_PROJECT_NAME
-```
-
-4. install dependencies
-
-```
+Use the Frond-End Repo (project temporarily named front react-redux-jwt-bootstrap)
 npm install
-```
+npm run start
+go Live with the Server
 
-5. Start development server with npm start
+Use Back-End Repo (project temporarily named backendexpress2)
+npm install
+npx nodemon
 
-```
-npm start
-```
+HOW TO PLAY WITH IT:
+Press the Tape-recorder to play/stop audio.
 
-## CRA docs
+    Patternmaker (sequencer)
+        You can click the blocks and create a new pattern.
+        Due to the target audience is 'schoolkids under 11y/o' the pattern is just 8th notes and just 1 bar long.
+        The current state is stored in Redux.
 
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+    Sound Selector
+        Let's you choose between 4 different 'Soundsets' of 2 drumsounds.
+
+    Recorder
+        If play-status is 'playing' the 'Start Recording-button' becomes visible.
+        When pressed you'll see a Stop Recording-button.
+        When pressed you will receive a 'blob of audio' that you can save to your computer.
+
+    Save Pattern
+        Choose the color of your pattern and name it.
+        When saved it is stored in Redux.
+
+    Pattern Selector
+        Switch between patterns, while keeping in time.
+        Start with a new empty pattern.
+
+    Press the Left Speaker
+        Show/Hide Delay Effect slider
+
+    Press the Right Speaker
+      Show/Hide Filter Effect slider
+
+What is next?
+Create a back-end for teacher to create a class and give students the option to save their patterns to the database instead of Redux.
