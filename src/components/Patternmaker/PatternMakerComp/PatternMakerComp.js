@@ -32,7 +32,6 @@ const samples = new Tone.Sampler({
 export default function PatternMakerComp(props) {
   const dispatch = useDispatch();
 
-  const [activeColumn, setColumn] = useState(0);
   const seqPattern = useSelector(selectSeqPattern);
   const seqSetting = useSelector(seqSettings);
   const [pattern, updatePattern] = useState(seqPattern.pattern); //INIT BY REDUX STATE
@@ -45,8 +44,6 @@ export default function PatternMakerComp(props) {
   useEffect(() => {
     const loop = new Tone.Sequence(
       (time, col) => {
-        setColumn(col);
-
         pattern.map((row, noteIndex) => {
           if (row[col]) {
             samples.triggerAttackRelease(notes[noteIndex], "16n", time);
